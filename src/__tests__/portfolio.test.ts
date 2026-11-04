@@ -47,6 +47,8 @@ import ContactSection from "@/app/components/ContactSection";
 import Footer from "@/app/components/Footer";
 import BlogsSection from "@/app/components/BlogsSection";
 import BlogsPage from "@/app/blogs/page";
+import ProjectsPage from "@/app/projects/page";
+import LightDismissDialog from "@/app/components/LightDismissDialog";
 import HomePage from "@/app/page";
 
 describe("Portfolio Data & Three-Source Integration", () => {
@@ -114,17 +116,54 @@ describe("Portfolio Data & Three-Source Integration", () => {
   });
 
   it("includes real GitHub production projects, Web3 repos, and mobile AR projects with accurate GitHub stacks and years", () => {
-    expect(projects.length).toBeGreaterThanOrEqual(12);
+    expect(projects).toHaveLength(14);
+    expect(projects.length).toBeGreaterThanOrEqual(14);
     const featured = getFeaturedProjects(projects);
-    expect(featured).toHaveLength(9);
+    expect(featured).toHaveLength(10);
     const featuredIds = featured.map((p) => p.id);
     expect(featuredIds).toContain("chitrabazaar");
     expect(featuredIds).toContain("byom-academy");
+    expect(featuredIds).toContain("anchal-ecommerce");
     expect(featuredIds).toContain("skyline-ar-mobile");
     expect(featuredIds).toContain("python-data-scraper");
 
     expect(projects[0].id).toBe("byom-academy");
     expect(projects[1].id).toBe("chitrabazaar");
+    expect(projects[2].id).toBe("anchal-ecommerce");
+    expect(featured[2].id).toBe("anchal-ecommerce");
+
+    const anchal = projects.find((p) => p.id === "anchal-ecommerce");
+    expect(anchal?.title).toBe("ANCHAL — Handloom Boutique & Studio CMS");
+    expect(anchal?.subtitle).toBe("Handloom Silk Storefront & Custom Studio Admin CMS");
+    expect(anchal?.description).toBe(
+      "Full-featured e-commerce storefront and custom Admin Studio CMS for ANCHAL, featuring a 3-tier data access layer, TipTap rich text, S3 presigned media pipeline, WhatsApp concierge, and Fonepay/COD checkout."
+    );
+    expect(anchal?.highlights).toEqual([
+      "Custom Admin Studio CMS (/admin) with TipTap rich-text editing and S3 presigned media uploads",
+      "3-tier data access layer combining SSR fetch, realtime client hydration, and resilient static fallback",
+      "E-commerce customer journey with product quick-view modal, persistent cart drawer, and WhatsApp concierge",
+      "Architected with Next.js 16, React 19, TypeScript, MongoDB (Mongoose), Jose JWT, and Zod validation",
+    ]);
+    expect(anchal?.technologies).toEqual([
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "MongoDB",
+      "Mongoose",
+      "AWS S3",
+      "TipTap",
+      "Tailwind CSS",
+      "Zod",
+    ]);
+    expect(anchal?.status).toBe("Live Production");
+    expect(anchal?.category).toBe("fullstack");
+    expect(anchal?.githubLink).toBe("https://github.com/prashantsingh55/Anchal_Ecommerce");
+    expect(anchal?.demoLink).toBe("https://anchal-ecommerce.vercel.app/");
+    expect(anchal?.featured).toBe(true);
+    expect(anchal?.year).toBe("2026");
+    expect(anchal?.metrics).toBe("Admin Studio CMS • S3 & Fonepay");
+    expect(anchal?.longDescription).toContain("3-tier data access layer");
+    expect(anchal?.longDescription).toContain("WhatsApp concierge");
 
     const chitrabazaar = projects.find((p) => p.id === "chitrabazaar");
     expect(chitrabazaar?.technologies).toContain("Prisma ORM");
@@ -163,6 +202,7 @@ describe("Portfolio Data & Three-Source Integration", () => {
     const taskChat = projects.find((p) => p.id === "task-chat-realtime-suite");
     expect(taskChat?.year).toBe("2025");
 
+    expect(projects.find((p) => p.id === "anchal-ecommerce")?.image).toBe("/projects/anchal-ecommerce.png");
     expect(projects.find((p) => p.id === "kalash-events")?.image).toBe("/projects/kalash-events.png");
     expect(projects.find((p) => p.id === "chitrabazaar")?.image).toBe("/projects/chitrabazaar.png");
     expect(projects.find((p) => p.id === "byom-academy")?.image).toBe("/projects/byom-academy.png");
@@ -227,6 +267,7 @@ describe("Portfolio Data & Three-Source Integration", () => {
       React.createElement(ProjectsSection, { featuredOnly: true })
     );
     expect(projectsHtml).toContain("https://beyourownmarketeracademy.com/");
+    expect(projectsHtml).toContain("https://anchal-ecommerce.vercel.app/");
     expect(projectsHtml).toContain("https://byom-tau.vercel.app");
     expect(projectsHtml).toContain("BYOM App (byom-tau)");
     expect(projectsHtml).toContain("BeYourOwnMarketer");
@@ -237,7 +278,9 @@ describe("Portfolio Data & Three-Source Integration", () => {
     expect(projectsHtml).toContain("pg-boss");
     expect(projectsHtml).toContain("kalash-events.png");
     expect(projectsHtml).toContain("byom-academy.png");
+    expect(projectsHtml).toContain("anchal-ecommerce.png");
     expect(projectsHtml).toContain("skyline-ar.png");
+    expect(projectsHtml).toContain("ANCHAL — Handloom Boutique &amp; Studio CMS");
 
     const allProjectsHtml = renderToStaticMarkup(
       React.createElement(ProjectsSection, { featuredOnly: false })
@@ -246,6 +289,10 @@ describe("Portfolio Data & Three-Source Integration", () => {
       const fileName = path.basename(project.image);
       expect(allProjectsHtml).toContain(fileName);
     }
+
+    const projectsPageHtml = renderToStaticMarkup(React.createElement(ProjectsPage));
+    expect(projectsPageHtml).toContain("anchal-ecommerce.png");
+    expect(projectsPageHtml).toContain("ANCHAL — Handloom Boutique &amp; Studio CMS");
 
     const contactHtml = renderToStaticMarkup(React.createElement(ContactSection));
     expect(contactHtml).toContain("prashantbikramsingh88@gmail.com");
@@ -256,6 +303,42 @@ describe("Portfolio Data & Three-Source Integration", () => {
     expect(footerHtml).toContain("prashantbikramsingh88@gmail.com");
     expect(footerHtml).toContain("thakurisinghprashant@gmail.com");
     expect(footerHtml).toContain("+977 9808193078");
+  });
+
+  it("renders ANCHAL dialog modal with Launch Live Production App button and demoLink", () => {
+    const anchal = projects.find((p) => p.id === "anchal-ecommerce");
+    expect(anchal).toBeDefined();
+    expect(anchal?.demoLink).toBe("https://anchal-ecommerce.vercel.app/");
+    expect(anchal?.status).toBe("Live Production");
+
+    const modalHtml = renderToStaticMarkup(
+      React.createElement(LightDismissDialog, {
+        isOpen: true,
+        onClose: () => {},
+        title: anchal!.title,
+        subtitle: anchal!.subtitle,
+        children: React.createElement(
+          "div",
+          null,
+          anchal!.demoLink &&
+            React.createElement(
+              "a",
+              {
+                href: anchal!.demoLink,
+                target: "_blank",
+                rel: "noopener noreferrer",
+                className: "tactile-control",
+              },
+              React.createElement("span", null, "Launch Live Production App")
+            )
+        ),
+      })
+    );
+
+    expect(modalHtml).toContain("ANCHAL — Handloom Boutique &amp; Studio CMS");
+    expect(modalHtml).toContain("Handloom Silk Storefront &amp; Custom Studio Admin CMS");
+    expect(modalHtml).toContain("Launch Live Production App");
+    expect(modalHtml).toContain("https://anchal-ecommerce.vercel.app/");
   });
 
   it("preserves all 6 original blog posts with expanded full-text content", () => {
@@ -291,6 +374,12 @@ describe("Project & Blog Filtering Logic (Edge Cases)", () => {
     const all = filterProjects(projects, "all", "");
     expect(all).toHaveLength(projects.length);
 
+    const fullstack = filterProjects(projects, "fullstack", "");
+    expect(fullstack).toHaveLength(9);
+    expect(fullstack.every((p) => p.category === "fullstack")).toBe(true);
+    expect(fullstack.map((p) => p.id)).toContain("anchal-ecommerce");
+    expect(fullstack[2].id).toBe("anchal-ecommerce");
+
     const web3 = filterProjects(projects, "web3", "");
     expect(web3.length).toBeGreaterThanOrEqual(2);
     expect(web3.every((p) => p.category === "web3")).toBe(true);
@@ -298,12 +387,31 @@ describe("Project & Blog Filtering Logic (Edge Cases)", () => {
     const mobile = filterProjects(projects, "mobile", "");
     expect(mobile.length).toBeGreaterThanOrEqual(1);
     expect(mobile[0].id).toBe("skyline-ar-mobile");
+
+    const opensource = filterProjects(projects, "opensource", "");
+    expect(opensource).toHaveLength(2);
+    expect(opensource.every((p) => p.category === "opensource")).toBe(true);
   });
 
   it("handles case-insensitive search queries, whitespace padding, and empty matches", () => {
     const searchKalash = filterProjects(projects, "all", "  KALASH  ");
     expect(searchKalash).toHaveLength(1);
     expect(searchKalash[0].id).toBe("kalash-events");
+
+    const searchAnchal = filterProjects(projects, "all", "  ANCHAL  ");
+    expect(searchAnchal).toHaveLength(1);
+    expect(searchAnchal[0].id).toBe("anchal-ecommerce");
+
+    const searchTipTap = filterProjects(projects, "fullstack", "tiptap");
+    expect(searchTipTap.map((p) => p.id)).toContain("anchal-ecommerce");
+
+    const searchLiveProd = filterProjects(projects, "all", "Live Production");
+    expect(searchLiveProd.map((p) => p.id)).toContain("anchal-ecommerce");
+    expect(searchLiveProd.map((p) => p.id)).toContain("chitrabazaar");
+    expect(searchLiveProd.map((p) => p.id)).toContain("byom-academy");
+
+    const searchFonepay = filterProjects(projects, "all", "fonepay");
+    expect(searchFonepay.map((p) => p.id)).toContain("anchal-ecommerce");
 
     const searchBYOM = filterProjects(projects, "all", "BeYourOwnMarketer");
     expect(searchBYOM.length).toBeGreaterThanOrEqual(1);
