@@ -14,7 +14,7 @@ export const projects: Project[] = [
     title: "BeYourOwnMarketer — BYOM Academy",
     subtitle: "Bilingual (EN/NE) EdTech & Content Creation Academy",
     description:
-      "Interactive EdTech platform for Nepal's practical digital marketing academy featuring bilingual EN/NE localization, Google Gemini AI (@google/genai) integration, and live production academy platform.",
+      "Interactive EdTech platform for Nepal's practical digital marketing academy featuring bilingual EN/NE localization and live production academy platform.",
     longDescription:
       "Designed for entrepreneurs, business owners, and creators in Nepal (`BeYourOwnMarketer`, `Byom`, and `chitrabazaarnp-bit/Be-Your-Own-Marketer`), BYOM delivers a high-converting bilingual (English & Nepali) learning experience at `https://beyourownmarketeracademy.com/` (alongside mirror `https://byom-tau.vercel.app`). It integrates Google Gemini AI (`@google/genai`) for interactive marketing assistance alongside 7-module curriculum breakdowns covering Meta Ads, AI Content Creation, and Conversion Funnels.",
     highlights: [
@@ -34,8 +34,6 @@ export const projects: Project[] = [
     category: "fullstack",
     githubLink: "https://github.com/prashantsingh55/BeYourOwnMarketer",
     demoLink: "https://beyourownmarketeracademy.com/",
-    secondaryDemoLink: "https://byom-tau.vercel.app",
-    secondaryDemoLabel: "BYOM App (byom-tau)",
     image: "/projects/byom-academy.png",
     featured: true,
     year: "2026",
