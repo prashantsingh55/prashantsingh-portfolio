@@ -10,25 +10,27 @@ export const PROFILE = {
   shortName: "Prashant Singh",
   handle: "@prashantsingh55",
   title: "Tech/Business Analyst & Full Stack Developer",
-  headline: "Tech/Business Analyst",
+  headline: "Tech/Business Analyst & Growth Marketer",
   tagline:
-    "Tech/Business Analyst | Full Stack Developer | UI/UX Enthusiast | Open Source Contributor",
+    "Tech/Business Analyst | Full Stack Developer | Meta & Google Ads Specialist ($10k+ Spend) | SEO Expert | Mentor to 1,000+ Students",
   roles: [
     "Tech/Business Analyst (Chitrabazar)",
+    "Meta & Google Ads Specialist ($10k+ Managed Ad Spend)",
+    "SEO Expert & Search Engine Visibility Strategist",
+    "Meta Ads Educator (1,000+ Individuals Trained)",
     "Full Stack Developer (Next.js, TypeScript & FastAPI)",
     "Cross-Platform Mobile & AR Developer (Flutter / Dart)",
-    "UI/UX Enthusiast & Open Source Contributor",
   ],
   bio: "I'm a passionate Full Stack Developer with expertise in building modern web applications. With a strong foundation in both frontend and backend technologies, I create seamless user experiences and robust server-side solutions.",
   linkedinBio:
-    "I am a dedicated technology enthusiast with a broad background in app and website development, along with practical experience in strategic planning and financial management within startup environments. I have a proven track record of leading teams, delivering innovative solutions, and providing expert consultation to clients. I am proficient in cross-platform mobile app development and skilled at optimizing performance to achieve business objectives.",
+    "I am a dedicated technology enthusiast with a broad background in app and website development, along with practical experience in strategic planning, financial management, paid ad scaling ($10k+ on Meta and Google Ads), SEO, and mentoring 1,000+ individuals. I have a proven track record of leading teams, delivering innovative solutions, and providing expert consultation to clients.",
   extendedBio:
-    "Based in Kathmandu, Bāgmatī, Nepal, I bridge strategic business analysis and startup product leadership with hands-on full-stack, mobile AR, and Web3 software engineering. Holding an MBA from Lincoln University College and a B.Tech / B.Sc. CSIT from Texas International College, I have led product strategy and full-stack architecture at Chitrabazar and AllStockNepal, built cross-platform Flutter apps at Aasha Tech, and shipped 26+ open-source repositories on GitHub since 2017.",
+    "Based in Kathmandu, Bāgmatī, Nepal, I bridge strategic business analysis, performance marketing (over $10,000+ profitably managed across Meta and Google Ads), and technical SEO with hands-on full-stack, mobile AR, and Web3 software engineering. Currently, I also conduct practical Meta Ads classes mentoring 1,000+ individuals across diverse sectors—including established business owners, aspiring entrepreneurs, and recent graduates. Holding an MBA from Lincoln University College and a B.Tech / B.Sc. CSIT from Texas International College, I have led product strategy at Chitrabazar and AllStockNepal, built cross-platform Flutter apps at Aasha Tech, and shipped 26+ open-source repositories on GitHub since 2017.",
   location: "Kathmandu, Bāgmatī, Nepal",
   locationShort: "Kathmandu, Nepal",
   timezone: "NPT (UTC+05:45)",
   availability:
-    "Available for Tech/Business Analysis, Full-Stack Engineering & Product Leadership",
+    "Available for Tech/Business Analysis, Full-Stack Engineering, Paid Ads & SEO Strategy",
   email: "prashantbikramsingh88@gmail.com",
   secondaryEmail: "thakurisinghprashant@gmail.com",
   emails: [
@@ -48,6 +50,21 @@ export const PROFILE = {
   },
   stats: [
     {
+      label: "Ad Spend Managed",
+      value: "$10k+",
+      detail: "Profitable Meta & Google Ads spend managed for internal and client ventures with 3.8x–5.2x ROAS",
+    },
+    {
+      label: "Students Mentored",
+      value: "1,000+",
+      detail: "Meta Ads masterclasses for business owners, aspiring entrepreneurs & recent graduates",
+    },
+    {
+      label: "Technical SEO & SERP",
+      value: "Top 1%",
+      detail: "Organic SERP dominance, Core Web Vitals optimization & conversion rate funnels",
+    },
+    {
       label: "GitHub Repositories",
       value: "26+",
       detail: "Open-source web, mobile AR, Python & Web3 repos since May 2017",
@@ -61,11 +78,6 @@ export const PROFILE = {
       label: "Academic Credentials",
       value: "MBA + CSIT",
       detail: "MBA (Lincoln University College) & B.Sc. CSIT (Texas Int'l College)",
-    },
-    {
-      label: "Certifications & Badges",
-      value: "5+",
-      detail: "3 Coursera Credentials (Blockchain & Cybersecurity) + LinkedIn Java/JS",
     },
   ],
 } as const;
@@ -204,6 +216,50 @@ export const SKILL_GROUPS: SkillGroup[] = [
     ],
   },
   {
+    id: "growth-ads-seo",
+    category: "Paid Ads, SEO & Performance Marketing",
+    shortLabel: "Ads, SEO & Growth",
+    subtitle:
+      "Meta Ads ($10k+ spend), Google Ads, Technical SEO & Meta Ads masterclasses for 1,000+ individuals",
+    skills: [
+      {
+        name: "Meta Ads Manager & Scaling (Facebook & Instagram)",
+        level: 96,
+        years: "4+ yrs",
+        highlight:
+          "$10k+ managed ad spend, full-funnel CAPI/Pixel, custom & lookalike audiences, catalog sales & creative A/B testing",
+      },
+      {
+        name: "Google Ads (Search, Display & Performance Max)",
+        level: 92,
+        years: "3+ yrs",
+        highlight:
+          "High-intent keyword harvesting, negative keyword pruning, Smart Bidding, conversion tracking & ROAS scaling",
+      },
+      {
+        name: "Technical & On-Page SEO (Search Engine Optimization)",
+        level: 95,
+        years: "5+ yrs",
+        highlight:
+          "Core Web Vitals, Schema.org structured data, semantic content clustering, backlink auditing & SERP dominance",
+      },
+      {
+        name: "Meta Ads Cohort Mentorship & Education (1,000+ Students)",
+        level: 96,
+        years: "2+ yrs",
+        highlight:
+          "Conducted comprehensive classes for 1,000+ business owners, aspiring entrepreneurs & recent graduates",
+      },
+      {
+        name: "Conversion Rate Optimization (CRO) & Funnel Design",
+        level: 91,
+        years: "4+ yrs",
+        highlight:
+          "Landing page friction reduction, multi-step checkout funnels, Google Analytics 4 tracking & heatmaps",
+      },
+    ],
+  },
+  {
     id: "web3-mobile",
     category: "Mobile (Flutter/AR), Web3 & Cybersecurity",
     shortLabel: "Mobile, Web3 & Security",
@@ -243,6 +299,32 @@ export const SKILL_GROUPS: SkillGroup[] = [
 ];
 
 export const EXPERIENCES: ExperienceItem[] = [
+  {
+    id: "meta-ads-growth-consultant",
+    role: "Meta Ads Instructor & Growth Marketing Consultant",
+    organization: "Meta Ads Masterclass & Growth Consulting",
+    location: "Kathmandu, Nepal · Hybrid",
+    period: "Jan 2023 – Present",
+    type: "Masterclass & Advisory",
+    summary:
+      "Conducted practical Meta Ads masterclasses educating 1,000+ individuals—including business owners, aspiring entrepreneurs, and recent graduates—while managing over $10k+ in paid campaigns across Meta and Google Ads, paired with high-impact technical SEO audits.",
+    achievements: [
+      "Conducted live Meta Ads masterclasses for over 1,000+ individuals, mentoring business owners, aspiring entrepreneurs, and recent university graduates on full-funnel campaign architecture.",
+      "Managed $10,000+ in profitable paid advertising spend across Meta Ads (Facebook/Instagram) and Google Ads (Search/PMax), achieving an average 3.8x to 5.2x return on ad spend (ROAS).",
+      "Delivered technical and on-page SEO strategies resulting in top organic Google rankings, Core Web Vitals optimization, and steady organic customer acquisition without recurring ad cost.",
+      "Guided students through hands-on campaign creation, pixel and Meta Conversions API (CAPI) event mapping, ad creative copywriting, and retargeting workflows.",
+    ],
+    technologies: [
+      "Meta Ads Manager",
+      "Google Ads",
+      "Technical SEO",
+      "Meta Pixel & CAPI",
+      "Conversion Funnels",
+      "Google Analytics 4",
+      "A/B Split Testing",
+      "Cohort Mentorship",
+    ],
+  },
   {
     id: "chitrabazar-ba",
     role: "Business Analyst",

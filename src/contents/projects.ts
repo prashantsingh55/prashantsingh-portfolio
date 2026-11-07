@@ -14,11 +14,13 @@ export const projects: Project[] = [
     title: "BeYourOwnMarketer — BYOM Academy",
     subtitle: "Bilingual (EN/NE) EdTech & Content Creation Academy",
     description:
-      "Interactive EdTech platform for Nepal's practical digital marketing academy featuring bilingual EN/NE localization and live production academy platform.",
+      "Interactive EdTech platform for Nepal's practical digital marketing academy featuring bilingual EN/NE localization, 1,000+ mentored individuals across Meta & Google Ads, and live production academy platform.",
     longDescription:
-      "Designed for entrepreneurs, business owners, and creators in Nepal (`BeYourOwnMarketer`, `Byom`, and `chitrabazaarnp-bit/Be-Your-Own-Marketer`), BYOM delivers a high-converting bilingual (English & Nepali) learning experience at `https://beyourownmarketeracademy.com/` (alongside mirror `https://byom-tau.vercel.app`). It integrates Google Gemini AI (`@google/genai`) for interactive marketing assistance alongside 7-module curriculum breakdowns covering Meta Ads, AI Content Creation, and Conversion Funnels.",
+      "Designed for entrepreneurs, business owners, and creators in Nepal (`BeYourOwnMarketer`, `Byom`, and `chitrabazaarnp-bit/Be-Your-Own-Marketer`), BYOM delivers a high-converting bilingual (English & Nepali) learning experience at `https://beyourownmarketeracademy.com/` (alongside mirror `https://byom-tau.vercel.app`). It integrates Google Gemini AI (`@google/genai`) for interactive marketing assistance alongside 7-module curriculum breakdowns covering Meta Ads ($10k+ ad spend battle-tested frameworks), AI Content Creation, Technical SEO, and Conversion Funnels for over 1,000+ enrolled students from business owners to graduates.",
     highlights: [
       "Instant English / नेपाली language switcher across all marketing and 7-module curriculum content",
+      "Mentored 1,000+ individuals (business owners, aspiring entrepreneurs, recent graduates) in Meta Ads & SEO",
+      "Trained students on battle-tested Meta & Google Ads frameworks with over $10,000+ in managed ad spend",
       "Integrated Google Gemini AI (@google/genai) assistant for interactive campaign planning and copy ideation",
       "Primary live production academy: https://beyourownmarketeracademy.com/ with mirror at byom-tau.vercel.app",
       "Live cohort seat availability tracker and streamlined student enrollment portal",
@@ -34,10 +36,12 @@ export const projects: Project[] = [
     category: "fullstack",
     githubLink: "https://github.com/prashantsingh55/BeYourOwnMarketer",
     demoLink: "https://beyourownmarketeracademy.com/",
+    secondaryDemoLink: "https://byom-tau.vercel.app",
+    secondaryDemoLabel: "BYOM App (byom-tau)",
     image: "/projects/byom-academy.png",
     featured: true,
     year: "2026",
-    metrics: "Bilingual EN/NE • Live Academy",
+    metrics: "1,000+ Students • $10k+ Ad Framework",
     status: "Live Production",
   },
   {

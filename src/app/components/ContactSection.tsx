@@ -190,29 +190,29 @@ export default function ContactSection() {
               </p>
             </div>
 
-            {/* Clean Architectural Coordinate Rows (No pastel icon boxes) */}
-            <div className="rounded-xl border border-zinc-200/90 dark:border-white/[0.08] bg-white dark:bg-[#0E1012] divide-y divide-zinc-200/70 dark:divide-white/[0.06]">
+            {/* Clean Architectural Coordinate Rows */}
+            <div className="rounded-xl border border-[#E8DEC8] dark:border-[#1E325C] bg-[#FAF7F2] dark:bg-[#0A142F] divide-y divide-[#E8DEC8] dark:divide-[#1E325C]/60 shadow-sm">
               <div className="p-4 space-y-2">
-                <div className="font-mono text-[10px] uppercase tracking-wider text-zinc-400 dark:text-[#555962]">
+                <div className="font-mono text-[10px] uppercase tracking-wider text-[#1E3A8A] dark:text-[#9FB3D9]">
                   01 / ELECTRONIC MAIL (CLICK TO COPY)
                 </div>
                 <div className="space-y-1.5">
                   <div className="flex items-center justify-between gap-2">
                     <a
                       href={`mailto:${PROFILE.email}`}
-                      className="font-mono text-xs font-medium text-[#090A0B] dark:text-[#F7F8F8] hover:underline truncate"
+                      className="font-mono text-xs font-semibold text-[#0A1226] dark:text-[#FAF6EE] hover:text-red-600 dark:hover:text-red-400 hover:underline truncate"
                     >
                       {PROFILE.email}
                     </a>
                     <button
                       type="button"
                       onClick={() => handleCopy(PROFILE.email)}
-                      className="tactile-control inline-flex items-center gap-1 rounded border border-zinc-200 dark:border-white/[0.1] bg-zinc-50 dark:bg-[#141517] px-2 py-0.5 font-mono text-[10px] text-zinc-600 dark:text-[#8A8F98]"
+                      className="tactile-control inline-flex items-center gap-1 rounded border border-[#E8DEC8] dark:border-[#1E325C] bg-[#F2ECE1] dark:bg-[#12234D] px-2 py-0.5 font-mono text-[10px] text-[#0A1226] dark:text-[#FAF6EE]"
                     >
                       {copiedEmail === PROFILE.email ? (
                         <>
-                          <Check className="h-3 w-3 text-emerald-500" />
-                          <span>Copied</span>
+                          <Check className="h-3 w-3 text-red-500" />
+                          <span className="text-red-600 dark:text-red-400 font-semibold">Copied</span>
                         </>
                       ) : (
                         <>
@@ -226,19 +226,19 @@ export default function ContactSection() {
                   <div className="flex items-center justify-between gap-2">
                     <a
                       href={`mailto:${PROFILE.secondaryEmail}`}
-                      className="font-mono text-xs text-zinc-600 dark:text-[#8A8F98] hover:underline truncate"
+                      className="font-mono text-xs text-zinc-600 dark:text-[#9FB3D9] hover:text-red-600 dark:hover:text-red-400 hover:underline truncate"
                     >
                       {PROFILE.secondaryEmail}
                     </a>
                     <button
                       type="button"
                       onClick={() => handleCopy(PROFILE.secondaryEmail)}
-                      className="tactile-control inline-flex items-center gap-1 rounded border border-zinc-200 dark:border-white/[0.1] bg-zinc-50 dark:bg-[#141517] px-2 py-0.5 font-mono text-[10px] text-zinc-600 dark:text-[#8A8F98]"
+                      className="tactile-control inline-flex items-center gap-1 rounded border border-[#E8DEC8] dark:border-[#1E325C] bg-[#F2ECE1] dark:bg-[#12234D] px-2 py-0.5 font-mono text-[10px] text-zinc-600 dark:text-[#9FB3D9]"
                     >
                       {copiedEmail === PROFILE.secondaryEmail ? (
                         <>
-                          <Check className="h-3 w-3 text-emerald-500" />
-                          <span>Copied</span>
+                          <Check className="h-3 w-3 text-red-500" />
+                          <span className="text-red-600 dark:text-red-400 font-semibold">Copied</span>
                         </>
                       ) : (
                         <>
@@ -253,12 +253,12 @@ export default function ContactSection() {
 
               <div className="p-4 flex items-center justify-between gap-4">
                 <div>
-                  <div className="font-mono text-[10px] uppercase tracking-wider text-zinc-400 dark:text-[#555962]">
+                  <div className="font-mono text-[10px] uppercase tracking-wider text-[#1E3A8A] dark:text-[#9FB3D9]">
                     02 / VOICE &amp; WHATSAPP
                   </div>
                   <a
                     href={`tel:${PROFILE.phoneRaw}`}
-                    className="font-mono text-xs font-medium text-[#090A0B] dark:text-[#F7F8F8] hover:underline mt-1 block"
+                    className="font-mono text-xs font-semibold text-[#0A1226] dark:text-[#FAF6EE] hover:text-red-600 dark:hover:text-red-400 hover:underline mt-1 block"
                   >
                     {PROFILE.phone}
                   </a>
@@ -267,7 +267,7 @@ export default function ContactSection() {
                   href={PROFILE.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="tactile-control inline-flex items-center gap-1 rounded border border-zinc-200 dark:border-white/[0.1] bg-zinc-50 dark:bg-[#141517] px-2.5 py-1 font-mono text-[10px] text-[#090A0B] dark:text-[#F7F8F8]"
+                  className="tactile-control inline-flex items-center gap-1 rounded border border-[#E8DEC8] dark:border-[#1E325C] bg-[#F2ECE1] dark:bg-[#12234D] px-2.5 py-1 font-mono text-[10px] text-[#0A1226] dark:text-[#FAF6EE] hover:border-red-400"
                 >
                   <span>WhatsApp</span>
                   <ArrowUpRight className="h-3 w-3" />
@@ -275,10 +275,10 @@ export default function ContactSection() {
               </div>
 
               <div className="p-4">
-                <div className="font-mono text-[10px] uppercase tracking-wider text-zinc-400 dark:text-[#555962]">
+                <div className="font-mono text-[10px] uppercase tracking-wider text-[#1E3A8A] dark:text-[#9FB3D9]">
                   03 / BASE COORDINATES
                 </div>
-                <div className="font-mono text-xs text-[#090A0B] dark:text-[#F7F8F8] mt-1">
+                <div className="font-mono text-xs text-[#0A1226] dark:text-[#FAF6EE] mt-1">
                   {PROFILE.location} ({PROFILE.timezone})
                 </div>
               </div>
@@ -290,7 +290,7 @@ export default function ContactSection() {
                 href={PROFILE.socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="tactile-control inline-flex items-center gap-1.5 rounded-lg border border-zinc-200 dark:border-white/[0.08] bg-white dark:bg-[#0E1012] px-3 py-2 font-mono text-xs text-[#090A0B] dark:text-[#F7F8F8]"
+                className="tactile-control inline-flex items-center gap-1.5 rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] bg-white dark:bg-[#0A142F] px-3 py-2 font-mono text-xs text-[#0A1226] dark:text-[#FAF6EE] hover:border-red-400"
               >
                 <Github className="h-3.5 w-3.5" />
                 <span>GitHub</span>
@@ -300,7 +300,7 @@ export default function ContactSection() {
                 href={PROFILE.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="tactile-control inline-flex items-center gap-1.5 rounded-lg border border-zinc-200 dark:border-white/[0.08] bg-white dark:bg-[#0E1012] px-3 py-2 font-mono text-xs text-[#090A0B] dark:text-[#F7F8F8]"
+                className="tactile-control inline-flex items-center gap-1.5 rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] bg-white dark:bg-[#0A142F] px-3 py-2 font-mono text-xs text-[#0A1226] dark:text-[#FAF6EE] hover:border-red-400"
               >
                 <Linkedin className="h-3.5 w-3.5" />
                 <span>LinkedIn</span>
@@ -310,7 +310,7 @@ export default function ContactSection() {
                 href={PROFILE.socials.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="tactile-control inline-flex items-center gap-1.5 rounded-lg border border-zinc-200 dark:border-white/[0.08] bg-white dark:bg-[#0E1012] px-3 py-2 font-mono text-xs text-[#090A0B] dark:text-[#F7F8F8]"
+                className="tactile-control inline-flex items-center gap-1.5 rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] bg-white dark:bg-[#0A142F] px-3 py-2 font-mono text-xs text-[#0A1226] dark:text-[#FAF6EE] hover:border-red-400"
               >
                 <FaXTwitter className="h-3.5 w-3.5" />
                 <span>@singhprashant57</span>
@@ -328,12 +328,12 @@ export default function ContactSection() {
             suppressHydrationWarning
             className="lg:col-span-7"
           >
-            <div className="rounded-xl border border-zinc-200/90 dark:border-white/[0.08] bg-white dark:bg-[#0E1012] p-6 sm:p-8">
-              <div className="flex items-center justify-between border-b border-zinc-200/70 dark:border-white/[0.06] pb-4 mb-6">
-                <h3 className="text-base font-semibold text-[#090A0B] dark:text-[#F7F8F8]">
+            <div className="rounded-xl border border-[#E8DEC8] dark:border-[#1E325C] bg-[#FAF7F2] dark:bg-[#0A142F] p-6 sm:p-8 shadow-sm">
+              <div className="flex items-center justify-between border-b border-[#E8DEC8] dark:border-[#1E325C]/60 pb-4 mb-6">
+                <h3 className="text-base font-semibold text-[#0A1226] dark:text-[#FAF6EE]">
                   Direct Message Dispatch
                 </h3>
-                <span className="font-mono text-[10px] text-zinc-400 dark:text-[#555962]">
+                <span className="font-mono text-[10px] text-zinc-400 dark:text-[#5B73A8]">
                   POST /api/contact
                 </span>
               </div>
@@ -348,14 +348,14 @@ export default function ContactSection() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block font-mono text-xs font-medium text-[#090A0B] dark:text-[#F7F8F8] mb-1"
+                      className="block font-mono text-xs font-medium text-[#0A1226] dark:text-[#FAF6EE] mb-1"
                     >
                       Your Name *
                     </label>
                     {/* MANDATORY (validate-input-after-interaction): Place format hints above the input so autocomplete popovers don't cover them */}
                     <span
                       id="name-hint"
-                      className="block font-mono text-[11px] text-zinc-500 dark:text-[#8A8F98] mb-1.5"
+                      className="block font-mono text-[11px] text-zinc-500 dark:text-[#9FB3D9] mb-1.5"
                     >
                       2–100 characters
                     </span>
@@ -374,9 +374,9 @@ export default function ContactSection() {
                       placeholder="e.g. Aarav Sharma"
                       className={`w-full rounded-lg border ${
                         fieldErrors.name
-                          ? "border-rose-500"
-                          : "border-zinc-200 dark:border-white/[0.1]"
-                      } bg-zinc-50 dark:bg-[#141517] px-3.5 py-2.5 text-sm text-[#090A0B] dark:text-[#F7F8F8] placeholder:text-zinc-400 dark:placeholder:text-[#555962] focus:border-zinc-400 dark:focus:border-white/30 focus:outline-none`}
+                          ? "border-red-500"
+                          : "border-[#E8DEC8] dark:border-[#1E325C]"
+                      } bg-white dark:bg-[#070D1E] px-3.5 py-2.5 text-sm text-[#0A1226] dark:text-[#FAF6EE] placeholder:text-zinc-400 dark:placeholder:text-[#9FB3D9]/60 focus:border-red-500 focus:outline-none`}
                     />
                     <div
                       id="name-error"
@@ -393,14 +393,14 @@ export default function ContactSection() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block font-mono text-xs font-medium text-[#090A0B] dark:text-[#F7F8F8] mb-1"
+                      className="block font-mono text-xs font-medium text-[#0A1226] dark:text-[#FAF6EE] mb-1"
                     >
                       Email Address *
                     </label>
                     {/* MANDATORY (validate-input-after-interaction): Place format hints above the input so autocomplete popovers don't cover them */}
                     <span
                       id="email-hint"
-                      className="block font-mono text-[11px] text-zinc-500 dark:text-[#8A8F98] mb-1.5"
+                      className="block font-mono text-[11px] text-zinc-500 dark:text-[#9FB3D9] mb-1.5"
                     >
                       Format: you@example.com
                     </span>
@@ -417,9 +417,9 @@ export default function ContactSection() {
                       placeholder="you@company.com"
                       className={`w-full rounded-lg border ${
                         fieldErrors.email
-                          ? "border-rose-500"
-                          : "border-zinc-200 dark:border-white/[0.1]"
-                      } bg-zinc-50 dark:bg-[#141517] px-3.5 py-2.5 text-sm text-[#090A0B] dark:text-[#F7F8F8] placeholder:text-zinc-400 dark:placeholder:text-[#555962] focus:border-zinc-400 dark:focus:border-white/30 focus:outline-none`}
+                          ? "border-red-500"
+                          : "border-[#E8DEC8] dark:border-[#1E325C]"
+                      } bg-white dark:bg-[#070D1E] px-3.5 py-2.5 text-sm text-[#0A1226] dark:text-[#FAF6EE] placeholder:text-zinc-400 dark:placeholder:text-[#9FB3D9]/60 focus:border-red-500 focus:outline-none`}
                     />
                     <div
                       id="email-error"
@@ -437,7 +437,7 @@ export default function ContactSection() {
                 <div>
                   <label
                     htmlFor="subject"
-                    className="block font-mono text-xs font-medium text-[#090A0B] dark:text-[#F7F8F8] mb-1.5"
+                    className="block font-mono text-xs font-medium text-[#0A1226] dark:text-[#FAF6EE] mb-1.5"
                   >
                     Subject / Scope
                   </label>
@@ -448,21 +448,21 @@ export default function ContactSection() {
                     maxLength={150}
                     value={formData.subject}
                     onChange={handleChange}
-                    placeholder="e.g. Next.js Architecture / Product Analysis / Full-Time Role"
-                    className="w-full rounded-lg border border-zinc-200 dark:border-white/[0.1] bg-zinc-50 dark:bg-[#141517] px-3.5 py-2.5 text-sm text-[#090A0B] dark:text-[#F7F8F8] placeholder:text-zinc-400 dark:placeholder:text-[#555962] focus:border-zinc-400 dark:focus:border-white/30 focus:outline-none"
+                    placeholder="e.g. Meta/Google Ads Consulting / Full-Stack Next.js / Technical SEO"
+                    className="w-full rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] bg-white dark:bg-[#070D1E] px-3.5 py-2.5 text-sm text-[#0A1226] dark:text-[#FAF6EE] placeholder:text-zinc-400 dark:placeholder:text-[#9FB3D9]/60 focus:border-red-500 focus:outline-none"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="message"
-                    className="block font-mono text-xs font-medium text-[#090A0B] dark:text-[#F7F8F8] mb-1"
+                    className="block font-mono text-xs font-medium text-[#0A1226] dark:text-[#FAF6EE] mb-1"
                   >
                     Message *
                   </label>
                   <span
                     id="message-hint"
-                    className="block font-mono text-[11px] text-zinc-500 dark:text-[#8A8F98] mb-1.5"
+                    className="block font-mono text-[11px] text-zinc-500 dark:text-[#9FB3D9] mb-1.5"
                   >
                     At least 10 characters describing your project or inquiry
                   </span>
@@ -477,12 +477,12 @@ export default function ContactSection() {
                     aria-errormessage="message-error"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Share your system requirements, timeline, or engineering context..."
+                    placeholder="Share your system requirements, ad budget, growth objectives, or timeline..."
                     className={`w-full rounded-lg border ${
                       fieldErrors.message
-                        ? "border-rose-500"
-                        : "border-zinc-200 dark:border-white/[0.1]"
-                    } bg-zinc-50 dark:bg-[#141517] px-3.5 py-2.5 text-sm text-[#090A0B] dark:text-[#F7F8F8] placeholder:text-zinc-400 dark:placeholder:text-[#555962] focus:border-zinc-400 dark:focus:border-white/30 focus:outline-none`}
+                        ? "border-red-500"
+                        : "border-[#E8DEC8] dark:border-[#1E325C]"
+                    } bg-white dark:bg-[#070D1E] px-3.5 py-2.5 text-sm text-[#0A1226] dark:text-[#FAF6EE] placeholder:text-zinc-400 dark:placeholder:text-[#9FB3D9]/60 focus:border-red-500 focus:outline-none`}
                   />
                   <div
                     id="message-error"
@@ -499,7 +499,7 @@ export default function ContactSection() {
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="tactile-control w-full inline-flex items-center justify-center gap-2 rounded-lg bg-[#090A0B] dark:bg-[#F7F8F8] disabled:opacity-60 px-6 py-3 text-xs sm:text-sm font-medium text-white dark:text-[#08090A]"
+                  className="tactile-control w-full inline-flex items-center justify-center gap-2 rounded-lg bg-red-600 hover:bg-red-700 disabled:opacity-60 px-6 py-3 text-xs sm:text-sm font-semibold text-white shadow-sm transition-colors"
                 >
                   <Send className="h-3.5 w-3.5" />
                   <span>

@@ -77,7 +77,7 @@ export default function BlogsSection({
 
         {/* Search & Category Filter */}
         {showSearch && (
-          <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3 mb-8 rounded-xl border border-zinc-200/80 dark:border-white/[0.08] bg-white dark:bg-[#0E1012] p-2.5">
+          <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3 mb-8 rounded-xl border border-[#E8DEC8] dark:border-[#1E325C] bg-[#FAF7F2] dark:bg-[#0A142F] p-2.5">
             <div className="flex flex-wrap items-center gap-1">
               {categories.map((cat) => {
                 const isSelected = selectedCategory === cat;
@@ -88,8 +88,8 @@ export default function BlogsSection({
                     onClick={() => setSelectedCategory(cat)}
                     className={`tactile-control rounded-lg px-3 py-1.5 text-xs font-medium transition-colors ${
                       isSelected
-                        ? "bg-zinc-900 text-white dark:bg-[#1A1B1E] dark:text-[#F7F8F8] border border-zinc-800 dark:border-white/[0.1]"
-                        : "text-zinc-500 dark:text-[#8A8F98] hover:text-zinc-900 dark:hover:text-white"
+                        ? "bg-white text-[#0A1226] dark:bg-[#12234D] dark:text-[#FAF6EE] border border-[#E8DEC8] dark:border-[#2A4785] shadow-sm font-semibold"
+                        : "text-zinc-500 dark:text-[#9FB3D9] hover:text-[#0A1226] dark:hover:text-white"
                     }`}
                   >
                     {cat === "all" ? "All Topics" : cat}
@@ -106,7 +106,7 @@ export default function BlogsSection({
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search articles..."
                 aria-label="Search blog posts"
-                className="w-full rounded-lg border border-zinc-200 dark:border-white/[0.08] bg-zinc-50 dark:bg-[#141517] pl-8 pr-3 py-1.5 text-xs text-[#090A0B] dark:text-[#F7F8F8] placeholder:text-zinc-400 dark:placeholder:text-[#555962] focus:border-zinc-400 dark:focus:border-white/25 focus:outline-none"
+                className="w-full rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] bg-white dark:bg-[#070D1E] pl-8 pr-3 py-1.5 text-xs text-[#0A1226] dark:text-[#FAF6EE] placeholder:text-zinc-400 dark:placeholder:text-[#9FB3D9]/60 focus:border-red-500 focus:outline-none"
               />
             </div>
           </div>
@@ -123,16 +123,16 @@ export default function BlogsSection({
               transition={{ duration: 0.45, delay: (idx % 3) * 0.08 }}
               whileHover={{ y: -4 }}
               suppressHydrationWarning
-              className="group flex flex-col rounded-xl border border-zinc-200/90 dark:border-white/[0.08] bg-white dark:bg-[#0E1012] p-5 hover:border-zinc-400 dark:hover:border-white/[0.2] hover:shadow-md transition-all"
+              className="group flex flex-col rounded-xl border border-[#E8DEC8] dark:border-[#1E325C] bg-white dark:bg-[#0A142F] p-5 hover:border-red-500/40 dark:hover:border-red-500/40 hover:shadow-md transition-all"
             >
-              <div className="flex items-center justify-between gap-2 font-mono text-[10px] text-zinc-500 dark:text-[#8A8F98] pb-3 border-b border-zinc-200/60 dark:border-white/[0.06]">
-                <span className="text-[#090A0B] dark:text-[#F7F8F8] font-semibold">
+              <div className="flex items-center justify-between gap-2 font-mono text-[10px] text-zinc-500 dark:text-[#9FB3D9] pb-3 border-b border-[#E8DEC8] dark:border-[#1E325C]/60">
+                <span className="text-red-600 dark:text-red-400 font-semibold">
                   NOTE-0{idx + 1} // {blog.category.toUpperCase()}
                 </span>
                 <span className="tabular-nums">{blog.readTime}</span>
               </div>
 
-              <h3 className="text-base font-semibold tracking-tight text-[#090A0B] dark:text-[#F7F8F8] mt-3.5 group-hover:underline decoration-zinc-400 underline-offset-4">
+              <h3 className="text-base font-semibold tracking-tight text-[#0A1226] dark:text-[#FAF6EE] mt-3.5 group-hover:underline decoration-red-400 underline-offset-4">
                 <button
                   type="button"
                   onClick={() => setActiveBlog(blog)}
@@ -142,7 +142,7 @@ export default function BlogsSection({
                 </button>
               </h3>
 
-              <p className="text-xs sm:text-[13px] text-zinc-600 dark:text-[#8A8F98] mt-2 leading-relaxed flex-1">
+              <p className="text-xs sm:text-[13px] text-zinc-600 dark:text-[#9FB3D9] mt-2 leading-relaxed flex-1">
                 {blog.excerpt}
               </p>
 
@@ -150,15 +150,15 @@ export default function BlogsSection({
                 {blog.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded border border-zinc-200/80 dark:border-white/[0.07] bg-zinc-50 dark:bg-[#141517] px-2 py-0.5 font-mono text-[10px] text-zinc-500 dark:text-[#8A8F98]"
+                    className="rounded border border-[#E8DEC8] dark:border-[#1E325C] bg-[#F2ECE1]/60 dark:bg-[#070D1E] px-2 py-0.5 font-mono text-[10px] text-[#1E3A8A] dark:text-[#9FB3D9]"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
 
-              <div className="mt-4 pt-3.5 border-t border-zinc-200/60 dark:border-white/[0.06] flex items-center justify-between font-mono text-[11px]">
-                <span className="text-zinc-400 dark:text-[#555962] tabular-nums">
+              <div className="mt-4 pt-3.5 border-t border-[#E8DEC8] dark:border-[#1E325C]/60 flex items-center justify-between font-mono text-[11px]">
+                <span className="text-zinc-400 dark:text-[#5B73A8] tabular-nums">
                   {new Date(blog.date).toLocaleDateString("en-US", {
                     year: "numeric",
                     month: "short",
@@ -170,7 +170,7 @@ export default function BlogsSection({
                 <button
                   type="button"
                   onClick={() => setActiveBlog(blog)}
-                  className="tactile-control inline-flex items-center gap-1 font-medium text-[#090A0B] dark:text-[#F7F8F8] hover:underline"
+                  className="tactile-control inline-flex items-center gap-1 font-semibold text-[#0A1226] dark:text-[#FAF6EE] hover:text-red-600 dark:hover:text-red-400 hover:underline"
                 >
                   <span>Read Note</span>
                   <ArrowUpRight className="h-3 w-3" />
@@ -198,24 +198,24 @@ export default function BlogsSection({
               {activeBlog.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded border border-zinc-200 dark:border-white/[0.1] bg-zinc-50 dark:bg-[#141517] px-2.5 py-0.5 font-mono text-xs text-zinc-600 dark:text-[#8A8F98]"
+                  className="rounded border border-[#E8DEC8] dark:border-[#1E325C] bg-[#F2ECE1]/60 dark:bg-[#070D1E] px-2.5 py-0.5 font-mono text-xs text-[#1E3A8A] dark:text-[#9FB3D9]"
                 >
                   #{tag}
                 </span>
               ))}
             </div>
 
-            <div className="space-y-4 text-sm sm:text-base text-zinc-700 dark:text-[#F7F8F8]/90 leading-relaxed">
+            <div className="space-y-4 text-sm sm:text-base text-[#0A1226] dark:text-[#FAF6EE]/90 leading-relaxed">
               {activeBlog.content.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
             </div>
 
             {activeBlog.codeSnippet && (
-              <div className="rounded-xl overflow-hidden border border-white/[0.1] bg-[#08090A] text-[#F7F8F8]">
-                <div className="flex items-center justify-between px-4 py-2.5 bg-[#141517] border-b border-white/[0.08] text-xs font-mono text-[#8A8F98]">
+              <div className="rounded-xl overflow-hidden border border-[#1E325C] bg-[#070D1E] text-[#FAF6EE]">
+                <div className="flex items-center justify-between px-4 py-2.5 bg-[#0E1E45] border-b border-[#1E325C] text-xs font-mono text-[#9FB3D9]">
                   <span className="inline-flex items-center gap-1.5">
-                    <Code className="h-3.5 w-3.5 text-emerald-400" />
+                    <Code className="h-3.5 w-3.5 text-red-400" />
                     {activeBlog.codeSnippet.title}
                   </span>
                   <span className="uppercase">

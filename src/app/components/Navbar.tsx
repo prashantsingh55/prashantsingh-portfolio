@@ -21,6 +21,7 @@ import {
   User,
   FileText,
   Mail,
+  TrendingUp,
 } from "lucide-react";
 import { useTheme } from "@/app/context/ThemeContext";
 import { PROFILE } from "@/contents/profile";
@@ -221,6 +222,28 @@ export default function Navbar() {
         },
       },
       {
+        id: "growth-ads-seo",
+        group: "Growth & Performance Marketing",
+        label: "Launch Meta & Google Ads Showcase ($10k+ Spent · 1,000+ Students)",
+        hint: "Ads & SEO",
+        icon: TrendingUp,
+        action: () => {
+          setCommandOpen(false);
+          router.push("/about#growth-studio");
+        },
+      },
+      {
+        id: "growth-meta-class",
+        group: "Growth & Performance Marketing",
+        label: "Inspect Meta Ads Masterclass (1,000+ Diverse Individuals Mentored)",
+        hint: "1,000+ Students",
+        icon: User,
+        action: () => {
+          setCommandOpen(false);
+          router.push("/about#growth-studio");
+        },
+      },
+      {
         id: "live-chitrabazaar",
         group: "Live Production Deployments",
         label: "Launch Chitrabazaar — Photo & Print Marketplace",
@@ -291,16 +314,16 @@ export default function Navbar() {
   }, [commandActions, commandQuery]);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-zinc-200/80 dark:border-white/[0.08] bg-[#FAFAFA]/85 dark:bg-[#08090A]/85 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-[#E8DEC8] dark:border-[#1E325C]/80 bg-[#FAF7F2]/90 dark:bg-[#070D1E]/90 backdrop-blur-md">
       {/* Top Utilitarian Telemetry Strip */}
-      <div className="border-b border-zinc-200/60 dark:border-white/[0.05] bg-zinc-100/60 dark:bg-[#0E1012]/90">
-        <div className="container-max flex h-8 items-center justify-between gap-4 text-[11px] font-mono text-zinc-500 dark:text-[#8A8F98]">
+      <div className="border-b border-[#E8DEC8]/80 dark:border-[#1E325C]/60 bg-[#F2ECE1]/90 dark:bg-[#070D1E]/95">
+        <div className="container-max flex h-8 items-center justify-between gap-4 text-[11px] font-mono text-[#1E3A8A] dark:text-[#9FB3D9]">
           <div className="flex items-center gap-2.5 min-w-0">
             <span className="relative flex h-2 w-2 shrink-0">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
             </span>
-            <span className="truncate text-zinc-700 dark:text-[#F7F8F8] font-medium">
+            <span className="truncate text-[#0A1226] dark:text-[#FAF6EE] font-medium">
               AVAILABLE FOR ENGINEERING &amp; PRODUCT LEADERSHIP
             </span>
             <span className="hidden md:inline text-zinc-300 dark:text-white/15">
@@ -315,13 +338,13 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => handleCopyEmail(PROFILE.email)}
-              className="tactile-control hidden sm:inline-flex items-center gap-1.5 rounded px-1.5 py-0.5 text-[11px] font-mono text-zinc-600 dark:text-[#8A8F98] hover:text-zinc-950 dark:hover:text-[#F7F8F8] hover:bg-zinc-200/60 dark:hover:bg-white/[0.06]"
+              className="tactile-control hidden sm:inline-flex items-center gap-1.5 rounded px-1.5 py-0.5 text-[11px] font-mono text-[#1E3A8A] dark:text-[#9FB3D9] hover:text-[#0A1226] dark:hover:text-[#FAF6EE] hover:bg-[#E8DEC8]/60 dark:hover:bg-[#1E325C]/60"
               title="Click to copy primary email"
             >
               {copiedEmail ? (
                 <>
-                  <Check className="h-3 w-3 text-emerald-500" />
-                  <span className="text-emerald-600 dark:text-emerald-400">
+                  <Check className="h-3 w-3 text-red-500" />
+                  <span className="text-red-600 dark:text-red-400 font-semibold">
                     COPIED TO CLIPBOARD
                   </span>
                 </>
@@ -335,7 +358,7 @@ export default function Navbar() {
             <span className="hidden sm:inline text-zinc-300 dark:text-white/15">
               |
             </span>
-            <span className="tabular-nums text-zinc-700 dark:text-[#F7F8F8]">
+            <span className="tabular-nums text-[#0A1226] dark:text-[#FAF6EE]">
               {katTime}
             </span>
           </div>
@@ -349,15 +372,15 @@ export default function Navbar() {
           href="/"
           className="tactile-control group flex items-center gap-3 focus:outline-none"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-zinc-300 dark:border-white/[0.12] bg-zinc-900 dark:bg-[#141517] font-mono text-xs font-semibold tracking-tighter text-white dark:text-[#F7F8F8] group-hover:border-zinc-500 dark:group-hover:border-white/30 transition-colors">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] bg-[#0E1E45] dark:bg-[#0E1E45] font-mono text-xs font-semibold tracking-tighter text-[#FAF6EE] group-hover:border-red-500 transition-colors">
             PS
           </span>
           <div className="flex flex-col">
-            <span className="text-sm font-semibold tracking-tight text-[#090A0B] dark:text-[#F7F8F8] leading-none">
+            <span className="text-sm font-semibold tracking-tight text-[#0A1226] dark:text-[#FAF6EE] leading-none">
               {PROFILE.fullName}
             </span>
-            <span className="font-mono text-[10px] text-zinc-500 dark:text-[#8A8F98] mt-1 leading-none">
-              DESIGN ENGINEER · BA · FULL-STACK
+            <span className="font-mono text-[10px] text-zinc-500 dark:text-[#9FB3D9] mt-1 leading-none">
+              GROWTH MARKETER · BA · FULL-STACK
             </span>
           </div>
         </Link>
@@ -365,7 +388,7 @@ export default function Navbar() {
         {/* Desktop Architectural Nav */}
         <nav
           aria-label="Primary Navigation"
-          className="hidden lg:flex items-center gap-0.5 rounded-lg border border-zinc-200/90 dark:border-white/[0.08] bg-zinc-100/80 dark:bg-[#0E1012] p-1"
+          className="hidden lg:flex items-center gap-0.5 rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] bg-[#F2ECE1]/80 dark:bg-[#0A142F]/90 p-1"
         >
           {NAV_ITEMS.map((item) => {
             const isActive =
@@ -379,11 +402,11 @@ export default function Navbar() {
                 href={item.href}
                 className={`tactile-control inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-medium transition-colors ${
                   isActive
-                    ? "bg-white dark:bg-[#1A1B1E] text-[#090A0B] dark:text-[#F7F8F8] shadow-sm border border-zinc-200/70 dark:border-white/[0.08]"
-                    : "text-zinc-600 dark:text-[#8A8F98] hover:text-[#090A0B] dark:hover:text-[#F7F8F8]"
+                    ? "bg-white dark:bg-[#12234D] text-[#0A1226] dark:text-[#FAF6EE] shadow-sm border border-[#E8DEC8] dark:border-[#2A4785]"
+                    : "text-zinc-600 dark:text-[#9FB3D9] hover:text-[#0A1226] dark:hover:text-[#FAF6EE]"
                 }`}
               >
-                <span className="font-mono text-[10px] text-zinc-400 dark:text-[#555962]">
+                <span className="font-mono text-[10px] text-zinc-400 dark:text-[#5B73A8]">
                   {item.code}
                 </span>
                 <span>{item.label}</span>
@@ -398,7 +421,7 @@ export default function Navbar() {
             type="button"
             onClick={() => setCommandOpen(true)}
             aria-label="Open command menu"
-            className="tactile-control inline-flex h-8 items-center gap-2 rounded-lg border border-zinc-200 dark:border-white/[0.1] bg-white dark:bg-[#141517] px-2.5 text-xs font-medium text-zinc-600 dark:text-[#8A8F98] hover:border-zinc-400 dark:hover:border-white/25 hover:text-zinc-950 dark:hover:text-[#F7F8F8]"
+            className="tactile-control inline-flex h-8 items-center gap-2 rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] bg-white dark:bg-[#0A142F] px-2.5 text-xs font-medium text-zinc-600 dark:text-[#9FB3D9] hover:border-red-400 dark:hover:border-red-400/50 hover:text-[#0A1226] dark:hover:text-[#FAF6EE]"
           >
             <Command className="h-3.5 w-3.5" />
             <span className="hidden sm:inline text-[11px]">Command</span>
@@ -410,7 +433,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub profile"
-            className="tactile-control hidden sm:inline-flex h-8 w-8 items-center justify-center rounded-lg border border-zinc-200 dark:border-white/[0.1] bg-white dark:bg-[#141517] text-zinc-600 dark:text-[#8A8F98] hover:text-zinc-950 dark:hover:text-[#F7F8F8] hover:border-zinc-400 dark:hover:border-white/25"
+            className="tactile-control hidden sm:inline-flex h-8 w-8 items-center justify-center rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] bg-white dark:bg-[#0A142F] text-zinc-600 dark:text-[#9FB3D9] hover:text-[#0A1226] dark:hover:text-[#FAF6EE] hover:border-red-400 dark:hover:border-red-400/50"
           >
             <Github className="h-3.5 w-3.5" />
           </a>
@@ -420,7 +443,7 @@ export default function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn profile"
-            className="tactile-control hidden sm:inline-flex h-8 w-8 items-center justify-center rounded-lg border border-zinc-200 dark:border-white/[0.1] bg-white dark:bg-[#141517] text-zinc-600 dark:text-[#8A8F98] hover:text-zinc-950 dark:hover:text-[#F7F8F8] hover:border-zinc-400 dark:hover:border-white/25"
+            className="tactile-control hidden sm:inline-flex h-8 w-8 items-center justify-center rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] bg-white dark:bg-[#0A142F] text-zinc-600 dark:text-[#9FB3D9] hover:text-[#0A1226] dark:hover:text-[#FAF6EE] hover:border-red-400 dark:hover:border-red-400/50"
           >
             <Linkedin className="h-3.5 w-3.5" />
           </a>
@@ -431,7 +454,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={toggleTheme}
-            className="tactile-control inline-flex h-8 w-8 items-center justify-center rounded-lg border border-zinc-200 dark:border-white/[0.1] bg-white dark:bg-[#141517] text-zinc-600 dark:text-[#8A8F98] hover:text-zinc-950 dark:hover:text-[#F7F8F8] hover:border-zinc-400 dark:hover:border-white/25"
+            className="tactile-control inline-flex h-8 w-8 items-center justify-center rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] bg-white dark:bg-[#0A142F] text-zinc-600 dark:text-[#9FB3D9] hover:text-[#0A1226] dark:hover:text-[#FAF6EE] hover:border-red-400 dark:hover:border-red-400/50"
           >
             <span className="if-dark inline-flex items-center justify-center">
               <Sun className="h-3.5 w-3.5" aria-hidden="true" />
@@ -445,7 +468,7 @@ export default function Navbar() {
 
           <Link
             href="/contact"
-            className="tactile-control hidden xl:inline-flex h-8 items-center gap-1.5 rounded-lg bg-[#090A0B] dark:bg-[#F7F8F8] px-3 text-xs font-medium text-white dark:text-[#08090A] hover:opacity-90"
+            className="tactile-control hidden xl:inline-flex h-8 items-center gap-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white shadow-sm px-3.5 text-xs font-semibold"
           >
             <span>Collaborate</span>
             <ArrowUpRight className="h-3.5 w-3.5" />
@@ -457,7 +480,7 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen((prev) => !prev)}
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileMenuOpen}
-            className="tactile-control inline-flex lg:hidden h-8 w-8 items-center justify-center rounded-lg border border-zinc-200 dark:border-white/[0.1] bg-white dark:bg-[#141517] text-zinc-700 dark:text-[#F7F8F8]"
+            className="tactile-control inline-flex lg:hidden h-8 w-8 items-center justify-center rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] bg-white dark:bg-[#0A142F] text-[#0A1226] dark:text-[#FAF6EE]"
           >
             {mobileMenuOpen ? (
               <X className="h-4 w-4" />
@@ -470,7 +493,7 @@ export default function Navbar() {
 
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-zinc-200 dark:border-white/[0.08] bg-[#FAFAFA] dark:bg-[#08090A] px-4 py-4 space-y-3">
+        <div className="lg:hidden border-t border-[#E8DEC8] dark:border-[#1E325C] bg-[#FAF7F2] dark:bg-[#070D1E] px-4 py-4 space-y-3">
           <nav className="flex flex-col space-y-1">
             {NAV_ITEMS.map((item) => {
               const isActive =
@@ -484,12 +507,12 @@ export default function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`flex items-center justify-between rounded-lg px-3 py-2 text-xs font-medium transition-colors ${
                     isActive
-                      ? "bg-zinc-200/70 dark:bg-[#141517] text-[#090A0B] dark:text-[#F7F8F8]"
-                      : "text-zinc-600 dark:text-[#8A8F98] hover:bg-zinc-100 dark:hover:bg-[#0E1012]"
+                      ? "bg-white dark:bg-[#12234D] text-[#0A1226] dark:text-[#FAF6EE] border border-[#E8DEC8] dark:border-[#2A4785]"
+                      : "text-zinc-600 dark:text-[#9FB3D9] hover:bg-[#F2ECE1] dark:hover:bg-[#0A142F]"
                   }`}
                 >
                   <span>{item.label}</span>
-                  <span className="font-mono text-[10px] text-zinc-400 dark:text-[#555962]">
+                  <span className="font-mono text-[10px] text-zinc-400 dark:text-[#5B73A8]">
                     {item.code}
                   </span>
                 </Link>
@@ -497,13 +520,13 @@ export default function Navbar() {
             })}
           </nav>
 
-          <div className="flex items-center justify-between pt-3 border-t border-zinc-200 dark:border-white/[0.08]">
+          <div className="flex items-center justify-between pt-3 border-t border-[#E8DEC8] dark:border-[#1E325C]">
             <div className="flex items-center gap-2">
               <a
                 href={PROFILE.socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-lg border border-zinc-200 dark:border-white/[0.1] px-2.5 py-1.5 text-xs font-mono text-zinc-700 dark:text-[#8A8F98]"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] px-2.5 py-1.5 text-xs font-mono text-[#0A1226] dark:text-[#9FB3D9]"
               >
                 <Github className="h-3.5 w-3.5" />
                 <span>GitHub</span>
@@ -512,7 +535,7 @@ export default function Navbar() {
                 href={PROFILE.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-lg border border-zinc-200 dark:border-white/[0.1] px-2.5 py-1.5 text-xs font-mono text-zinc-700 dark:text-[#8A8F98]"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] px-2.5 py-1.5 text-xs font-mono text-[#0A1226] dark:text-[#9FB3D9]"
               >
                 <Linkedin className="h-3.5 w-3.5" />
                 <span>LinkedIn</span>
@@ -521,7 +544,7 @@ export default function Navbar() {
             <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="inline-flex items-center gap-1 rounded-lg bg-[#090A0B] dark:bg-[#F7F8F8] px-3 py-1.5 text-xs font-medium text-white dark:text-[#08090A]"
+              className="inline-flex items-center gap-1 rounded-lg bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 text-xs font-semibold"
             >
               <span>Collaborate</span>
               <ArrowUpRight className="h-3.5 w-3.5" />
@@ -539,7 +562,7 @@ export default function Navbar() {
           setActiveCommandIndex(0);
         }}
         title="Command Palette"
-        subtitle="Navigate sections, launch production systems, or copy contact coordinates"
+        subtitle="Navigate sections, launch production systems, or inspect ads/SEO showcase"
       >
         <div className="space-y-4">
           <div className="relative">
@@ -571,7 +594,7 @@ export default function Navbar() {
               }}
               placeholder="Type a command, system name, or route..."
               aria-label="Filter commands"
-              className="w-full rounded-xl border border-zinc-200 dark:border-white/[0.1] bg-zinc-50 dark:bg-[#141517] pl-10 pr-4 py-2.5 text-sm text-[#090A0B] dark:text-[#F7F8F8] placeholder:text-zinc-400 dark:placeholder:text-[#555962] focus:border-zinc-400 dark:focus:border-white/30 focus:outline-none"
+              className="w-full rounded-xl border border-[#E8DEC8] dark:border-[#1E325C] bg-[#FAF7F2] dark:bg-[#0A142F] pl-10 pr-4 py-2.5 text-sm text-[#0A1226] dark:text-[#FAF6EE] placeholder:text-zinc-400 dark:placeholder:text-[#9FB3D9]/60 focus:border-red-500 focus:outline-none"
             />
           </div>
 
@@ -581,7 +604,7 @@ export default function Navbar() {
             className="space-y-1 max-h-80 overflow-y-auto"
           >
             {filteredCommands.length === 0 ? (
-              <div className="rounded-lg border border-dashed border-zinc-200 dark:border-white/[0.08] py-8 px-4 text-center font-mono text-xs text-zinc-500 dark:text-[#8A8F98]">
+              <div className="rounded-lg border border-dashed border-[#E8DEC8] dark:border-[#1E325C] py-8 px-4 text-center font-mono text-xs text-zinc-500 dark:text-[#9FB3D9]">
                 No matching commands or systems for &ldquo;{commandQuery}&rdquo;
               </div>
             ) : (
@@ -598,17 +621,17 @@ export default function Navbar() {
                     onClick={cmd.action}
                     className={`tactile-control w-full flex items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-left text-xs transition-colors group ${
                       isSelected
-                        ? "bg-zinc-100 dark:bg-[#141517] border border-zinc-200/80 dark:border-white/[0.1]"
-                        : "border border-transparent hover:bg-zinc-100 dark:hover:bg-[#141517]"
+                        ? "bg-[#F2ECE1] dark:bg-[#12234D] border border-[#E8DEC8] dark:border-[#2A4785]"
+                        : "border border-transparent hover:bg-[#F2ECE1]/60 dark:hover:bg-[#0A142F]"
                     }`}
                   >
                     <div className="flex items-center gap-3 min-w-0">
-                      <Icon className="h-4 w-4 text-zinc-400 dark:text-[#8A8F98] group-hover:text-[#090A0B] dark:group-hover:text-[#F7F8F8] shrink-0" />
+                      <Icon className="h-4 w-4 text-zinc-400 dark:text-[#9FB3D9] group-hover:text-red-500 shrink-0" />
                       <div className="truncate">
-                        <span className="font-medium text-[#090A0B] dark:text-[#F7F8F8]">
+                        <span className="font-medium text-[#0A1226] dark:text-[#FAF6EE]">
                           {cmd.label}
                         </span>
-                        <span className="ml-2 font-mono text-[10px] text-zinc-400 dark:text-[#555962]">
+                        <span className="ml-2 font-mono text-[10px] text-zinc-400 dark:text-[#5B73A8]">
                           {cmd.group}
                         </span>
                       </div>

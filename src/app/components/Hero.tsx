@@ -15,6 +15,7 @@ import {
   Code2,
   Briefcase,
   Smartphone,
+  TrendingUp,
 } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
 import { PROFILE } from "@/contents/profile";
@@ -77,7 +78,7 @@ export function computeSkylineRidgePath(azimuthDeg: number): string {
   return `M0,80 L0,52 L45,${y1} L95,48 L150,${y2} L210,44 L265,${y3} L320,50 L320,80 Z`;
 }
 
-type ShowcaseTab = "systems" | "product" | "mobile";
+type ShowcaseTab = "systems" | "product" | "growth" | "mobile";
 
 export default function Hero() {
   const [copied, setCopied] = useState(false);
@@ -180,11 +181,11 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative border-b border-zinc-200/80 dark:border-white/[0.08] pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden">
-      {/* Subtle modern ambient background with animated floating glow orbs */}
+    <section className="relative border-b border-[#E8DEC8] dark:border-[#1E325C] pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden">
+      {/* Subtle modern ambient background with animated floating glow orbs (Blue 60%, Cream 30%, Red 10%) */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 architectural-grid opacity-30 dark:opacity-20"
+        className="pointer-events-none absolute inset-0 -z-10 architectural-grid opacity-35 dark:opacity-25"
       />
       <motion.div
         aria-hidden="true"
@@ -203,7 +204,7 @@ export default function Hero() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="pointer-events-none absolute -top-20 -left-20 -z-10 h-80 w-80 rounded-full bg-emerald-500/10 dark:bg-emerald-500/[0.06] blur-2xl"
+        className="pointer-events-none absolute -top-20 -left-20 -z-10 h-80 w-80 rounded-full bg-blue-600/15 dark:bg-blue-500/[0.1] blur-2xl"
       />
       <motion.div
         aria-hidden="true"
@@ -222,7 +223,26 @@ export default function Hero() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="pointer-events-none absolute top-1/2 -right-20 -z-10 h-80 w-80 rounded-full bg-zinc-300/20 dark:bg-zinc-700/[0.08] blur-2xl"
+        className="pointer-events-none absolute top-1/2 -right-20 -z-10 h-80 w-80 rounded-full bg-[#FAF6EE]/20 dark:bg-[#FAF6EE]/[0.05] blur-2xl"
+      />
+      <motion.div
+        aria-hidden="true"
+        suppressHydrationWarning
+        animate={
+          prefersReducedMotion
+            ? {}
+            : {
+                x: [0, 15, 0],
+                y: [0, 15, 0],
+                scale: [1, 1.04, 1],
+              }
+        }
+        transition={{
+          duration: 9,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="pointer-events-none absolute bottom-0 left-1/3 -z-10 h-64 w-64 rounded-full bg-red-500/10 dark:bg-red-500/[0.06] blur-2xl"
       />
 
 
@@ -233,19 +253,19 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
           suppressHydrationWarning
-          className="flex flex-wrap items-center justify-between gap-3 pb-5 mb-8 border-b border-zinc-200/80 dark:border-white/[0.08] text-[11px] font-mono text-zinc-500 dark:text-[#8A8F98]"
+          className="flex flex-wrap items-center justify-between gap-3 pb-5 mb-8 border-b border-[#E8DEC8] dark:border-[#1E325C] text-[11px] font-mono text-[#57534E] dark:text-[#C5BAA9]"
         >
           <div className="flex items-center gap-2">
-            <span className="text-zinc-900 dark:text-[#F7F8F8] font-semibold">
+            <span className="text-[#0A1226] dark:text-[#FAF6EE] font-semibold">
               01 / PORTFOLIO INDEX
             </span>
-            <span className="text-zinc-300 dark:text-white/15">—</span>
+            <span className="text-[#DFD4BD] dark:text-[#1E325C]">—</span>
             <span>{PROFILE.tagline}</span>
           </div>
           <div className="flex items-center gap-2">
-            <MapPin className="h-3 w-3 text-emerald-500" />
+            <MapPin className="h-3 w-3 text-red-500" />
             <span>{PROFILE.location}</span>
-            <span className="text-zinc-300 dark:text-white/15">·</span>
+            <span className="text-[#DFD4BD] dark:text-[#1E325C]">·</span>
             <span>{PROFILE.timezone}</span>
           </div>
         </motion.div>
@@ -261,17 +281,17 @@ export default function Hero() {
           {/* Left Column: Headline, Bio & Primary CTAs */}
           <div className="lg:col-span-7 space-y-6">
             <motion.div variants={itemVariants} initial={false} suppressHydrationWarning className="space-y-4">
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-700 dark:text-emerald-400">
+              <div className="inline-flex items-center gap-2 rounded-full border border-red-500/25 bg-red-500/10 px-3.5 py-1 text-xs font-medium text-red-700 dark:text-red-400">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
                 </span>
                 <span>{PROFILE.availability}</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#090A0B] dark:text-[#F7F8F8] leading-[1.08]">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#0A1226] dark:text-[#FAF6EE] leading-[1.08]">
                 {PROFILE.fullName}
-                <span className="block text-zinc-500 dark:text-[#8A8F98] font-normal text-2xl sm:text-3xl lg:text-4xl mt-2 tracking-tight">
+                <span className="block text-[#1E3A8A] dark:text-[#93C5FD] font-normal text-2xl sm:text-3xl lg:text-4xl mt-2 tracking-tight">
                   {PROFILE.headline} &amp; Full Stack Developer
                 </span>
               </h1>
@@ -282,30 +302,30 @@ export default function Hero() {
               variants={itemVariants}
               initial={false}
               suppressHydrationWarning
-              className="space-y-3 text-sm sm:text-base text-zinc-600 dark:text-[#8A8F98] leading-relaxed max-w-2xl"
+              className="space-y-3 text-sm sm:text-base text-[#44403C] dark:text-[#DCD3C5] leading-relaxed max-w-2xl"
             >
               <p>
                 {PROFILE.bio} Holding an{" "}
-                <strong className="font-semibold text-zinc-900 dark:text-[#F7F8F8]">
+                <strong className="font-semibold text-[#0A1226] dark:text-[#FAF6EE]">
                   MBA from Lincoln University College
                 </strong>{" "}
                 and a{" "}
-                <strong className="font-semibold text-zinc-900 dark:text-[#F7F8F8]">
+                <strong className="font-semibold text-[#0A1226] dark:text-[#FAF6EE]">
                   B.Sc. CSIT from Texas International College
                 </strong>
                 , I bridge IT Business Analysis with full-stack engineering at{" "}
-                <span className="font-medium text-zinc-900 dark:text-[#F7F8F8] underline decoration-zinc-300 dark:decoration-white/20 underline-offset-4">
+                <span className="font-medium text-[#0A1226] dark:text-[#FAF6EE] underline decoration-[#DFD4BD] dark:decoration-[#1E325C] underline-offset-4">
                   Chitrabazar
                 </span>{" "}
                 and{" "}
-                <span className="font-medium text-zinc-900 dark:text-[#F7F8F8] underline decoration-zinc-300 dark:decoration-white/20 underline-offset-4">
+                <span className="font-medium text-[#0A1226] dark:text-[#FAF6EE] underline decoration-[#DFD4BD] dark:decoration-[#1E325C] underline-offset-4">
                   AllStockNepal
                 </span>
                 .
               </p>
-              <p className="text-xs sm:text-sm text-zinc-500 dark:text-[#7A808A]">
-                Author of 26+ open-source repositories spanning Next.js, FastAPI,{" "}
-                <span className="font-mono text-zinc-900 dark:text-[#F7F8F8]">
+              <p className="text-xs sm:text-sm text-[#57534E] dark:text-[#B8AEA0]">
+                Managed <strong className="text-red-600 dark:text-red-400 font-semibold">$10k+ on Meta &amp; Google Ads</strong> with high ROAS, educator to <strong className="text-red-600 dark:text-red-400 font-semibold">1,000+ individuals</strong> in Meta Ads masterclasses, SEO expert, and author of 26+ open-source repositories spanning Next.js, FastAPI,{" "}
+                <span className="font-mono text-[#0A1226] dark:text-[#FAF6EE]">
                   Skyline-AR
                 </span>{" "}
                 Flutter sensor fusion, and verified Solidity Web3 contracts.
@@ -321,7 +341,7 @@ export default function Hero() {
             >
               <Link
                 href="/projects"
-                className="tactile-control inline-flex items-center gap-2 rounded-xl bg-zinc-900 hover:bg-zinc-800 dark:bg-[#F7F8F8] dark:hover:bg-white px-5 py-3 text-xs sm:text-sm font-semibold text-white dark:text-[#08090A] shadow-sm hover:shadow transition-all"
+                className="tactile-control inline-flex items-center gap-2 rounded-xl bg-red-600 hover:bg-red-700 dark:bg-red-600 dark:hover:bg-red-500 px-5 py-3 text-xs sm:text-sm font-semibold text-white shadow-md shadow-red-950/20 transition-all"
               >
                 <span>Inspect Production Systems</span>
                 <ArrowRight className="h-4 w-4" />
@@ -330,18 +350,18 @@ export default function Hero() {
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className="tactile-control inline-flex items-center gap-2 rounded-xl border border-zinc-200 dark:border-white/[0.12] bg-white dark:bg-[#141517] hover:bg-zinc-50 dark:hover:bg-[#1A1B1E] px-4 py-3 text-xs sm:text-sm font-medium text-zinc-800 dark:text-[#F7F8F8] transition-colors"
+                className="tactile-control inline-flex items-center gap-2 rounded-xl border border-[#E8DEC8] dark:border-[#1E325C] bg-[#FAF6EE] dark:bg-[#0F1B38] hover:bg-[#F3ECE0] dark:hover:bg-[#15254A] px-4 py-3 text-xs sm:text-sm font-medium text-[#0A1226] dark:text-[#FAF6EE] transition-colors"
               >
                 {copied ? (
                   <>
-                    <Check className="h-4 w-4 text-emerald-500" />
-                    <span className="font-mono text-xs text-emerald-600 dark:text-emerald-400">
+                    <Check className="h-4 w-4 text-red-500" />
+                    <span className="font-mono text-xs text-red-600 dark:text-red-400">
                       Copied {PROFILE.email}
                     </span>
                   </>
                 ) : (
                   <>
-                    <Copy className="h-4 w-4 text-zinc-400 dark:text-[#8A8F98]" />
+                    <Copy className="h-4 w-4 text-[#786037] dark:text-[#93C5FD]" />
                     <span>Copy Email</span>
                     <kbd className="keycap ml-0.5">C</kbd>
                   </>
@@ -350,7 +370,7 @@ export default function Hero() {
 
               <Link
                 href="/about"
-                className="tactile-control inline-flex items-center gap-1.5 rounded-xl border border-zinc-200/80 dark:border-white/[0.08] bg-zinc-100/70 dark:bg-[#0E1012] hover:bg-zinc-200/70 dark:hover:bg-[#141517] px-4 py-3 text-xs sm:text-sm font-medium text-zinc-700 dark:text-[#8A8F98] transition-colors"
+                className="tactile-control inline-flex items-center gap-1.5 rounded-xl border border-[#E8DEC8] dark:border-[#1E325C] bg-[#F5EFE6] dark:bg-[#0C152B] hover:bg-[#EFE8DC] dark:hover:bg-[#142347] px-4 py-3 text-xs sm:text-sm font-medium text-[#0A1226] dark:text-[#FAF6EE] transition-colors"
               >
                 <span>About &amp; Dossier</span>
               </Link>
@@ -361,16 +381,16 @@ export default function Hero() {
               variants={itemVariants}
               initial={false}
               suppressHydrationWarning
-              className="pt-4 border-t border-zinc-200/70 dark:border-white/[0.06] flex flex-wrap items-center gap-2.5 text-xs"
+              className="pt-4 border-t border-[#E8DEC8] dark:border-[#1E325C] flex flex-wrap items-center gap-2.5 text-xs"
             >
-              <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-400 dark:text-[#555962] mr-1">
+              <span className="font-mono text-[10px] uppercase tracking-wider text-[#786037] dark:text-[#93C5FD] mr-1">
                 VERIFIED PROFILES:
               </span>
               <a
                 href={PROFILE.socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="tactile-control inline-flex items-center gap-1.5 rounded-lg border border-zinc-200 dark:border-white/[0.08] bg-white dark:bg-[#0E1012] px-3 py-1.5 font-mono text-[11px] text-zinc-700 dark:text-[#8A8F98] hover:text-zinc-950 dark:hover:text-[#F7F8F8] hover:border-zinc-400 dark:hover:border-white/20 transition-colors"
+                className="tactile-control inline-flex items-center gap-1.5 rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] bg-[#FAF6EE] dark:bg-[#0C152B] px-3 py-1.5 font-mono text-[11px] text-[#0A1226] dark:text-[#FAF6EE] hover:border-blue-500 dark:hover:border-blue-400 transition-colors"
               >
                 <Github className="h-3.5 w-3.5" />
                 <span>GitHub</span>
@@ -380,7 +400,7 @@ export default function Hero() {
                 href={PROFILE.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="tactile-control inline-flex items-center gap-1.5 rounded-lg border border-zinc-200 dark:border-white/[0.08] bg-white dark:bg-[#0E1012] px-3 py-1.5 font-mono text-[11px] text-zinc-700 dark:text-[#8A8F98] hover:text-zinc-950 dark:hover:text-[#F7F8F8] hover:border-zinc-400 dark:hover:border-white/20 transition-colors"
+                className="tactile-control inline-flex items-center gap-1.5 rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] bg-[#FAF6EE] dark:bg-[#0C152B] px-3 py-1.5 font-mono text-[11px] text-[#0A1226] dark:text-[#FAF6EE] hover:border-blue-500 dark:hover:border-blue-400 transition-colors"
               >
                 <Linkedin className="h-3.5 w-3.5" />
                 <span>LinkedIn</span>
@@ -390,7 +410,7 @@ export default function Hero() {
                 href={PROFILE.socials.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="tactile-control inline-flex items-center gap-1.5 rounded-lg border border-zinc-200 dark:border-white/[0.08] bg-white dark:bg-[#0E1012] px-3 py-1.5 font-mono text-[11px] text-zinc-700 dark:text-[#8A8F98] hover:text-zinc-950 dark:hover:text-[#F7F8F8] hover:border-zinc-400 dark:hover:border-white/20 transition-colors"
+                className="tactile-control inline-flex items-center gap-1.5 rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] bg-[#FAF6EE] dark:bg-[#0C152B] px-3 py-1.5 font-mono text-[11px] text-[#0A1226] dark:text-[#FAF6EE] hover:border-blue-500 dark:hover:border-blue-400 transition-colors"
               >
                 <FaXTwitter className="h-3.5 w-3.5" />
                 <span>Twitter / X</span>
@@ -398,13 +418,13 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Column: Visual Showcase & Profile Card (Zero Math Telemetry) */}
+          {/* Right Column: Visual Showcase & Profile Card */}
           <motion.div variants={itemVariants} initial={false} suppressHydrationWarning className="lg:col-span-5">
-            <div className="relative rounded-2xl border border-zinc-200 dark:border-white/[0.1] bg-white/90 dark:bg-[#0E1012]/90 shadow-xl backdrop-blur-md overflow-hidden">
+            <div className="relative rounded-2xl border border-[#E8DEC8] dark:border-[#1E325C] bg-[#FAF7F2]/95 dark:bg-[#0C152B]/95 shadow-xl backdrop-blur-md overflow-hidden">
               {/* Profile Card Header with Real Photo */}
-              <div className="p-6 border-b border-zinc-100 dark:border-white/[0.06] bg-gradient-to-b from-zinc-50/80 to-transparent dark:from-white/[0.02] dark:to-transparent">
+              <div className="p-6 border-b border-[#E8DEC8] dark:border-[#1E325C]/70 bg-gradient-to-b from-[#F3ECE0] to-transparent dark:from-[#101C38] dark:to-transparent">
                 <div className="flex items-center gap-4">
-                  <div className="relative h-20 w-20 shrink-0 rounded-2xl overflow-hidden p-0.5 border border-zinc-300/80 dark:border-white/15 ring-1 ring-zinc-200/90 dark:ring-white/10 bg-gradient-to-b from-zinc-200 via-zinc-100 to-zinc-300 dark:from-zinc-700 dark:via-zinc-800 dark:to-zinc-900 shadow-sm">
+                  <div className="relative h-20 w-20 shrink-0 rounded-2xl overflow-hidden p-0.5 border border-[#DFD5C2] dark:border-[#22396B] ring-1 ring-blue-500/20 dark:ring-blue-500/30 bg-gradient-to-b from-blue-900/10 via-[#FAF6EE] to-blue-900/10 shadow-sm">
                     <div className="relative h-full w-full rounded-[14px] overflow-hidden">
                       <Image
                         src={PROFILE.avatarUrl}
@@ -419,18 +439,18 @@ export default function Hero() {
                   </div>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2">
-                      <h2 className="text-lg font-bold text-zinc-900 dark:text-[#F7F8F8] truncate">
+                      <h2 className="text-lg font-bold text-[#0A1226] dark:text-[#FAF6EE] truncate">
                         {PROFILE.fullName}
                       </h2>
-                      <span className="inline-flex items-center rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-medium">
+                      <span className="inline-flex items-center rounded-full bg-red-500/10 px-2 py-0.5 text-[10px] font-mono text-red-600 dark:text-red-400 font-medium border border-red-500/20">
                         Active
                       </span>
                     </div>
-                    <p className="text-xs font-medium text-zinc-600 dark:text-[#8A8F98] truncate mt-0.5">
+                    <p className="text-xs font-medium text-[#1E3A8A] dark:text-[#93C5FD] truncate mt-0.5">
                       {PROFILE.title}
                     </p>
-                    <p className="text-[11px] text-zinc-400 dark:text-[#6A707C] truncate mt-1">
-                      MBA · Lincoln Univ. | B.Sc. CSIT · Texas College
+                    <p className="text-[11px] text-[#786037] dark:text-[#C5BAA9] truncate mt-1 font-mono">
+                      MBA · Lincoln Univ. | CSIT · Texas College
                     </p>
                   </div>
                 </div>
@@ -438,18 +458,19 @@ export default function Hero() {
 
               {/* Intuitive Focus Selector */}
               <div className="px-6 pt-4 pb-2">
-                <div className="flex items-center justify-between text-xs font-semibold text-zinc-400 dark:text-[#555962] uppercase tracking-wider mb-2 font-mono">
+                <div className="flex items-center justify-between text-xs font-semibold text-[#786037] dark:text-[#93C5FD] uppercase tracking-wider mb-2 font-mono">
                   <span>Core Expertise Areas</span>
-                  <span className="text-emerald-600 dark:text-emerald-400">
+                  <span className="text-red-600 dark:text-red-400">
                     Verified
                   </span>
                 </div>
-                <div className="grid grid-cols-3 gap-1.5 p-1 rounded-xl bg-zinc-100/80 dark:bg-[#141517]">
+                <div className="grid grid-cols-4 gap-1 p-1 rounded-xl bg-[#F0E6D4] dark:bg-[#070D1E]">
                   {(
                     [
                       { id: "systems", label: "Full-Stack", icon: Code2 },
-                      { id: "product", label: "Product & BA", icon: Briefcase },
-                      { id: "mobile", label: "Mobile / AR", icon: Smartphone },
+                      { id: "growth", label: "Ads & SEO", icon: TrendingUp },
+                      { id: "product", label: "Product/BA", icon: Briefcase },
+                      { id: "mobile", label: "Mobile/AR", icon: Smartphone },
                     ] as const
                   ).map((tab) => {
                     const Icon = tab.icon;
@@ -459,14 +480,14 @@ export default function Hero() {
                         key={tab.id}
                         type="button"
                         onClick={() => setActiveTab(tab.id)}
-                        className={`tactile-control flex items-center justify-center gap-1.5 rounded-lg py-2 px-1 text-xs font-medium transition-all ${
+                        className={`tactile-control flex items-center justify-center gap-1 rounded-lg py-2 px-1 text-[11px] font-medium transition-all ${
                           isSelected
-                            ? "bg-white dark:bg-[#1E2024] text-zinc-950 dark:text-white shadow-sm"
-                            : "text-zinc-500 dark:text-[#8A8F98] hover:text-zinc-900 dark:hover:text-white"
+                            ? "bg-[#0A1226] text-white dark:bg-[#1E325C] dark:text-[#FAF6EE] shadow-sm"
+                            : "text-[#57534E] dark:text-[#C5BAA9] hover:text-[#0A1226] dark:hover:text-white"
                         }`}
                       >
-                        <Icon className="h-3.5 w-3.5" />
-                        <span>{tab.label}</span>
+                        <Icon className="h-3 w-3 shrink-0" />
+                        <span className="truncate">{tab.label}</span>
                       </button>
                     );
                   })}
@@ -483,7 +504,7 @@ export default function Hero() {
                     suppressHydrationWarning
                     className="space-y-3"
                   >
-                    <p className="text-xs text-zinc-600 dark:text-[#8A8F98] leading-relaxed">
+                    <p className="text-xs text-[#57534E] dark:text-[#DCD3C5] leading-relaxed">
                       Production web applications built with Next.js App Router,
                       PostgreSQL, Prisma ORM, and high-performance server APIs.
                     </p>
@@ -499,20 +520,20 @@ export default function Hero() {
                       ].map((tech) => (
                         <span
                           key={tech}
-                          className="rounded-md border border-zinc-200 dark:border-white/[0.08] bg-zinc-50 dark:bg-[#141517] px-2.5 py-1 text-[11px] font-mono text-zinc-700 dark:text-[#8A8F98]"
+                          className="rounded-md border border-[#E8DEC8] dark:border-[#1E325C] bg-[#FAF6EE] dark:bg-[#101C38] px-2.5 py-1 text-[11px] font-mono text-[#0A1226] dark:text-[#FAF6EE]"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
-                    <div className="pt-2 border-t border-zinc-100 dark:border-white/[0.06] flex items-center justify-between text-xs font-mono">
-                      <span className="text-zinc-400">Flagships:</span>
+                    <div className="pt-2 border-t border-[#E8DEC8] dark:border-[#1E325C]/60 flex items-center justify-between text-xs font-mono">
+                      <span className="text-[#786037] dark:text-[#93C5FD]">Flagships:</span>
                       <div className="flex items-center gap-3">
                         <a
                           href="https://beyourownmarketeracademy.com/"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1"
+                          className="text-red-600 dark:text-red-400 hover:underline flex items-center gap-1 font-semibold"
                         >
                           BeYourOwnMarketer <ArrowUpRight className="h-3 w-3" />
                         </a>
@@ -520,9 +541,61 @@ export default function Hero() {
                           href="https://chitrabazaar.vercel.app"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-zinc-700 dark:text-[#F7F8F8] hover:underline flex items-center gap-1"
+                          className="text-[#0A1226] dark:text-[#FAF6EE] hover:underline flex items-center gap-1"
                         >
                           Chitrabazaar <ArrowUpRight className="h-3 w-3" />
+                        </a>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
+                {activeTab === "growth" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.25 }}
+                    suppressHydrationWarning
+                    className="space-y-3"
+                  >
+                    <p className="text-xs text-[#57534E] dark:text-[#DCD3C5] leading-relaxed">
+                      Over <strong className="text-red-600 dark:text-red-400 font-semibold">$10,000+ managed in Meta &amp; Google Ads</strong> with high ROAS, educator to <strong className="text-red-600 dark:text-red-400 font-semibold">1,000+ individuals</strong> (business founders, entrepreneurs &amp; graduates), and organic SEO architect.
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {[
+                        "Meta Ads ($10k+ Spend)",
+                        "Google Ads (PMax)",
+                        "1,000+ Mentored",
+                        "Technical SEO Expert",
+                        "Meta Pixel & CAPI",
+                        "3.8x–5.2x ROAS",
+                      ].map((item) => (
+                        <span
+                          key={item}
+                          className="rounded-md border border-[#E8DEC8] dark:border-[#1E325C] bg-[#FAF6EE] dark:bg-[#101C38] px-2.5 py-1 text-[11px] font-mono text-[#0A1226] dark:text-[#FAF6EE]"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="pt-2 border-t border-[#E8DEC8] dark:border-[#1E325C]/60 flex items-center justify-between text-xs font-mono">
+                      <span className="text-[#786037] dark:text-[#93C5FD]">Deployments:</span>
+                      <div className="flex items-center gap-3">
+                        <a
+                          href="https://beyourownmarketeracademy.com/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-red-600 dark:text-red-400 hover:underline flex items-center gap-1 font-semibold"
+                        >
+                          BYOM Academy <ArrowUpRight className="h-3 w-3" />
+                        </a>
+                        <a
+                          href="https://allstocknepal.vercel.app"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[#0A1226] dark:text-[#FAF6EE] hover:underline flex items-center gap-1"
+                        >
+                          AllStockNepal <ArrowUpRight className="h-3 w-3" />
                         </a>
                       </div>
                     </div>
@@ -537,7 +610,7 @@ export default function Hero() {
                     suppressHydrationWarning
                     className="space-y-3"
                   >
-                    <p className="text-xs text-zinc-600 dark:text-[#8A8F98] leading-relaxed">
+                    <p className="text-xs text-[#57534E] dark:text-[#DCD3C5] leading-relaxed">
                       MBA-backed IT Business Analysis, market strategy, Agile/Scrum
                       governance, and startup co-founder leadership.
                     </p>
@@ -551,20 +624,20 @@ export default function Hero() {
                       ].map((item) => (
                         <span
                           key={item}
-                          className="rounded-md border border-zinc-200 dark:border-white/[0.08] bg-zinc-50 dark:bg-[#141517] px-2.5 py-1 text-[11px] font-mono text-zinc-700 dark:text-[#8A8F98]"
+                          className="rounded-md border border-[#E8DEC8] dark:border-[#1E325C] bg-[#FAF6EE] dark:bg-[#101C38] px-2.5 py-1 text-[11px] font-mono text-[#0A1226] dark:text-[#FAF6EE]"
                         >
                           {item}
                         </span>
                       ))}
                     </div>
-                    <div className="pt-2 border-t border-zinc-100 dark:border-white/[0.06] flex items-center justify-between text-xs font-mono">
-                      <span className="text-zinc-400">Deployments:</span>
+                    <div className="pt-2 border-t border-[#E8DEC8] dark:border-[#1E325C]/60 flex items-center justify-between text-xs font-mono">
+                      <span className="text-[#786037] dark:text-[#93C5FD]">Deployments:</span>
                       <div className="flex items-center gap-3">
                         <a
                           href="https://allstocknepal.vercel.app"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1"
+                          className="text-red-600 dark:text-red-400 hover:underline flex items-center gap-1 font-semibold"
                         >
                           AllStockNepal <ArrowUpRight className="h-3 w-3" />
                         </a>
@@ -572,7 +645,7 @@ export default function Hero() {
                           href="https://beyourownmarketeracademy.com/"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-zinc-700 dark:text-[#F7F8F8] hover:underline flex items-center gap-1"
+                          className="text-[#0A1226] dark:text-[#FAF6EE] hover:underline flex items-center gap-1"
                         >
                           BeYourOwnMarketer <ArrowUpRight className="h-3 w-3" />
                         </a>
@@ -589,7 +662,7 @@ export default function Hero() {
                     suppressHydrationWarning
                     className="space-y-3"
                   >
-                    <p className="text-xs text-zinc-600 dark:text-[#8A8F98] leading-relaxed">
+                    <p className="text-xs text-[#57534E] dark:text-[#DCD3C5] leading-relaxed">
                       Cross-platform mobile apps, Flutter AR with camera and sensor
                       fusion (Skyline-AR), and on-chain Ethereum smart contracts.
                     </p>
@@ -604,19 +677,19 @@ export default function Hero() {
                       ].map((tech) => (
                         <span
                           key={tech}
-                          className="rounded-md border border-zinc-200 dark:border-white/[0.08] bg-zinc-50 dark:bg-[#141517] px-2.5 py-1 text-[11px] font-mono text-zinc-700 dark:text-[#8A8F98]"
+                          className="rounded-md border border-[#E8DEC8] dark:border-[#1E325C] bg-[#FAF6EE] dark:bg-[#101C38] px-2.5 py-1 text-[11px] font-mono text-[#0A1226] dark:text-[#FAF6EE]"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
-                    <div className="pt-2 border-t border-zinc-100 dark:border-white/[0.06] flex items-center justify-between text-xs font-mono">
-                      <span className="text-zinc-400">Repositories:</span>
+                    <div className="pt-2 border-t border-[#E8DEC8] dark:border-[#1E325C]/60 flex items-center justify-between text-xs font-mono">
+                      <span className="text-[#786037] dark:text-[#93C5FD]">Repositories:</span>
                       <a
                         href="https://github.com/prashantsingh55/Skyline-AR"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1"
+                        className="text-red-600 dark:text-red-400 hover:underline flex items-center gap-1 font-semibold"
                       >
                         Skyline-AR Repo <ArrowUpRight className="h-3 w-3" />
                       </a>
@@ -628,14 +701,14 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Clean, Modern Metric Counters at Bottom */}
+        {/* Clean, Modern Metric Counters at Bottom (Blue 60%, Cream 30%, Red 10%) */}
         <motion.div
           initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.5, delay: 0.2 }}
           suppressHydrationWarning
-          className="mt-14 pt-8 border-t border-zinc-200/80 dark:border-white/[0.08] grid grid-cols-2 lg:grid-cols-4 gap-6"
+          className="mt-14 pt-8 border-t border-[#E8DEC8] dark:border-[#1E325C] grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5"
         >
           {PROFILE.stats.map((stat, idx) => (
             <motion.div
@@ -643,15 +716,16 @@ export default function Hero() {
               whileHover={{ y: -3 }}
               transition={{ duration: 0.2 }}
               suppressHydrationWarning
-              className="rounded-xl border border-zinc-200/60 dark:border-white/[0.06] bg-white/50 dark:bg-[#0E1012]/50 p-4 hover:border-zinc-300 dark:hover:border-white/15 transition-colors"
+              className="rounded-xl border border-[#E8DEC8] dark:border-[#1E325C] bg-[#FAF6EE]/70 dark:bg-[#0C152B]/70 p-3.5 hover:border-red-500/50 dark:hover:border-red-500/50 transition-colors"
             >
-              <div className="font-mono text-[10px] uppercase tracking-wider text-zinc-400 dark:text-[#555962]">
+              <div className="font-mono text-[9px] uppercase tracking-wider text-[#786037] dark:text-[#93C5FD]">
                 0{idx + 1} / {stat.label}
               </div>
-              <div className="font-mono text-2xl sm:text-3xl font-bold tracking-tight text-[#090A0B] dark:text-[#F7F8F8] tabular-nums mt-1">
-                {stat.value}
+              <div className="font-mono text-xl sm:text-2xl font-bold tracking-tight text-[#0A1226] dark:text-[#FAF6EE] tabular-nums mt-1 flex items-baseline gap-1">
+                <span>{stat.value}</span>
+                {idx < 3 && <span className="h-1.5 w-1.5 rounded-full bg-red-500 shrink-0" />}
               </div>
-              <p className="text-xs text-zinc-500 dark:text-[#8A8F98] mt-1 line-clamp-2 leading-relaxed">
+              <p className="text-[11px] text-[#57534E] dark:text-[#C5BAA9] mt-1 line-clamp-2 leading-relaxed">
                 {stat.detail}
               </p>
             </motion.div>

@@ -77,13 +77,15 @@ describe("Portfolio Data & Three-Source Integration", () => {
   });
 
   it("includes authentic LinkedIn work experience, education, certifications, and skill groups", () => {
-    expect(SKILL_GROUPS).toHaveLength(4);
+    expect(SKILL_GROUPS).toHaveLength(5);
     const skillGroupIds = SKILL_GROUPS.map((g) => g.id);
     expect(skillGroupIds).toContain("business-product");
+    expect(skillGroupIds).toContain("growth-ads-seo");
     expect(SKILL_GROUPS.map((g) => g.shortLabel)).toEqual([
       "Frontend & UI/UX",
       "Backend & Data",
       "Business & Product",
+      "Ads, SEO & Growth",
       "Mobile, Web3 & Security",
     ]);
 
@@ -92,11 +94,15 @@ describe("Portfolio Data & Three-Source Integration", () => {
     expect(allSkillNames).toContain("Hardhat");
     expect(allSkillNames).toContain("Power BI");
     expect(allSkillNames).toContain("Jira");
+    expect(allSkillNames).toContain("Meta Ads");
+    expect(allSkillNames).toContain("Google Ads");
+    expect(allSkillNames).toContain("SEO");
 
-    expect(EXPERIENCES).toHaveLength(5);
+    expect(EXPERIENCES).toHaveLength(6);
     const orgs = EXPERIENCES.map((e) => e.organization);
     expect(orgs).toContain("Chitrabazar");
     expect(orgs).toContain("AllStockNepal");
+    expect(orgs).toContain("Meta Ads Masterclass & Growth Consulting");
     expect(orgs.filter((o) => o === "Aasha Tech")).toHaveLength(2);
 
     expect(EDUCATION).toHaveLength(3);
