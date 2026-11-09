@@ -26,6 +26,7 @@ import {
 import { useTheme } from "@/app/context/ThemeContext";
 import { PROFILE } from "@/contents/profile";
 import LightDismissDialog from "@/app/components/LightDismissDialog";
+import BrandLogo from "@/app/components/BrandLogo";
 
 export const NAV_ITEMS = [
   { href: "/", label: "Index", code: "01" },
@@ -372,9 +373,7 @@ export default function Navbar() {
           href="/"
           className="tactile-control group flex items-center gap-3 focus:outline-none"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] bg-[#0E1E45] dark:bg-[#0E1E45] font-mono text-xs font-semibold tracking-tighter text-[#FAF6EE] group-hover:border-red-500 transition-colors">
-            PS
-          </span>
+          <BrandLogo size="md" />
           <div className="flex flex-col">
             <span className="text-sm font-semibold tracking-tight text-[#0A1226] dark:text-[#FAF6EE] leading-none">
               {PROFILE.fullName}

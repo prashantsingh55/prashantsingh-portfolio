@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Github, Linkedin, Copy, Check, ArrowUpRight } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
 import { PROFILE } from "@/contents/profile";
+import BrandLogo from "@/app/components/BrandLogo";
 
 export default function Footer() {
   const [copiedEmail, setCopiedEmail] = useState<string | null>(null);
@@ -43,9 +44,7 @@ export default function Footer() {
           {/* Brand & Craft Signature */}
           <div className="md:col-span-5 space-y-3">
             <Link href="/" className="inline-flex items-center gap-2.5">
-              <span className="flex h-7 w-7 items-center justify-center rounded-md border border-[#E8DEC8] dark:border-[#1E325C] bg-[#0E1E45] font-mono text-[11px] font-semibold text-[#FAF6EE]">
-                PS
-              </span>
+              <BrandLogo size="sm" />
               <span className="text-sm font-semibold tracking-tight text-[#0A1226] dark:text-[#FAF6EE]">
                 {PROFILE.fullName}
               </span>
