@@ -20,13 +20,13 @@ export const projects: Project[] = [
     highlights: [
       "Instant English / नेपाली language switcher across all marketing and 7-module curriculum content",
       "Integrated Google Gemini AI (@google/genai) assistant for interactive campaign planning and copy ideation",
-      "Primary live production academy: https://beyourownmarketeracademy.com/ with mirror at byom-tau.vercel.app",
+      "Primary live production academy: https://beyourownmarketeracademy.com/ ",
       "Live cohort seat availability tracker and streamlined student enrollment portal",
     ],
     technologies: [
       "Next.js",
       "TypeScript",
-      "Google Gemini AI (@google/genai)",
+      "Fonepay Payment Gateway",
       "Tailwind CSS",
       "Framer Motion",
       "Vercel",
