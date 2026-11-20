@@ -6,11 +6,11 @@
    Apply color-scheme to :root for viewport-wide theming, provide light-dark() fallbacks,
    pair scrollbar-color with scrollbar-width, and decouple color-scheme selection via --color-scheme. */
 :root {
-  --color-brand-light: #18181b;
-  --color-brand-dark: #f4f4f5;
-  --accent-color: #10b981;
-  --scrollbar-thumb: #27272a;
-  --scrollbar-track: #08090a;
+  --color-brand-light: #0a1226;
+  --color-brand-dark: #faf6ee;
+  --accent-color: #ef4444;
+  --scrollbar-thumb: #1e3a8a;
+  --scrollbar-track: #070d1e;
   --color-scheme: dark;
 
   color-scheme: dark;
@@ -22,18 +22,18 @@
   &.dark {
     color-scheme: dark;
     --color-scheme: dark;
-    --accent-color: #10b981;
-    --scrollbar-thumb: #27272a;
-    --scrollbar-track: #08090a;
+    --accent-color: #ef4444;
+    --scrollbar-thumb: #1e3a8a;
+    --scrollbar-track: #070d1e;
   }
 
   &:has(> head > meta[name="color-scheme"][content="light"]),
   &:not(.dark) {
     color-scheme: light;
     --color-scheme: light;
-    --accent-color: #059669;
-    --scrollbar-thumb: #a1a1aa;
-    --scrollbar-track: #fafafa;
+    --accent-color: #dc2626;
+    --scrollbar-thumb: #93c5fd;
+    --scrollbar-track: #faf6ee;
   }
 }
 
@@ -70,7 +70,7 @@ html {
 }
 
 body {
-  @apply bg-[#FAFAFA] text-[#090A0B] dark:bg-[#08090A] dark:text-[#F7F8F8] antialiased selection:bg-zinc-900 selection:text-zinc-50 dark:selection:bg-zinc-100 dark:selection:text-zinc-950;
+  @apply bg-[#FAF7F2] text-[#0A1226] dark:bg-[#070D1E] dark:text-[#FAF6EE] antialiased selection:bg-[#1E3A8A] selection:text-[#FAF6EE] dark:selection:bg-[#EF4444] dark:selection:text-white;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
@@ -323,24 +323,24 @@ dialog[open] {
   }
 
   .surface-panel {
-    @apply bg-white dark:bg-[#0E1012] border border-zinc-200/80 dark:border-white/[0.08];
+    @apply bg-[#FAF7F2] dark:bg-[#0C152B] border border-[#E8DEC8] dark:border-[#1E325C];
   }
 
   .surface-elevated {
-    @apply bg-zinc-50/90 dark:bg-[#141517] border border-zinc-200/80 dark:border-white/[0.08];
+    @apply bg-[#F4ECE0] dark:bg-[#101C38] border border-[#DFD3BB] dark:border-[#22396B];
   }
 
   .surface-interactive {
-    @apply bg-white dark:bg-[#141517] border border-zinc-200/90 dark:border-white/[0.08] hover:border-zinc-400 dark:hover:border-white/[0.18] transition-colors;
+    @apply bg-[#FAF7F2] dark:bg-[#0C152B] border border-[#E8DEC8] dark:border-[#1E325C] hover:border-[#2563EB] dark:hover:border-[#3B82F6] hover:bg-[#F8F3E8] dark:hover:bg-[#142347] transition-colors;
   }
 
   .keycap {
-    @apply inline-flex items-center justify-center rounded border border-zinc-300 dark:border-white/[0.14] bg-zinc-100 dark:bg-[#1A1B1E] px-1.5 py-0.5 font-mono text-[10px] font-medium text-zinc-600 dark:text-[#8A8F98] shadow-[0_1px_0_0_rgba(0,0,0,0.08)] dark:shadow-[0_1px_0_0_rgba(255,255,255,0.06)];
+    @apply inline-flex items-center justify-center rounded border border-[#DCD0B9] dark:border-[#243A6A] bg-[#F5ECE0] dark:bg-[#121F3D] px-1.5 py-0.5 font-mono text-[10px] font-medium text-[#1E3A8A] dark:text-[#FAF6EE] shadow-[0_1px_0_0_rgba(0,0,0,0.06)] dark:shadow-[0_1px_0_0_rgba(255,255,255,0.04)];
   }
 
   .architectural-grid {
     background-image: radial-gradient(
-      rgba(138, 143, 152, 0.18) 1px,
+      rgba(59, 130, 246, 0.16) 1px,
       transparent 1px
     );
     background-size: 24px 24px;

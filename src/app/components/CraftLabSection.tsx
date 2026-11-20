@@ -314,8 +314,8 @@ export default function CraftLabSection() {
             </p>
           </div>
 
-          <div className="flex items-center gap-2 font-mono text-[11px] text-zinc-500 dark:text-[#8A8F98]">
-            <span className="h-2 w-2 rounded-full bg-emerald-500" />
+          <div className="flex items-center gap-2 font-mono text-[11px] text-zinc-500 dark:text-[#9FB3D9]">
+            <span className="h-2 w-2 rounded-full bg-red-500" />
             <span>INTERACTIVE // ZERO EXTERNAL ASSETS</span>
           </div>
         </div>
@@ -327,27 +327,27 @@ export default function CraftLabSection() {
             <div className="space-y-4">
               <div className="flex items-center justify-between gap-2 border-b border-zinc-200/70 dark:border-white/[0.06] pb-3">
                 <div className="flex items-center gap-2">
-                  <Sliders className="h-3.5 w-3.5 text-zinc-500 dark:text-[#8A8F98]" />
-                  <h3 className="font-mono text-xs font-semibold text-[#090A0B] dark:text-[#F7F8F8]">
+                  <Sliders className="h-3.5 w-3.5 text-zinc-500 dark:text-[#9FB3D9]" />
+                  <h3 className="font-mono text-xs font-semibold text-[#0A1226] dark:text-[#FAF6EE]">
                     LAB 01 // SPRING PHYSICS
                   </h3>
                 </div>
-                <span className="font-mono text-[10px] text-emerald-600 dark:text-emerald-400 tabular-nums">
+                <span className="font-mono text-[10px] text-red-600 dark:text-red-400 tabular-nums">
                   ζ = {springTelemetry.dampingRatio} ·{" "}
                   {springTelemetry.settlingTimeMs}ms
                 </span>
               </div>
 
               {/* Live SVG Waveform & Animated Spring Puck */}
-              <div className="rounded-lg border border-zinc-200 dark:border-white/[0.08] bg-[#08090A] p-3 space-y-3">
-                <div className="flex items-center justify-between font-mono text-[10px] text-[#8A8F98]">
+              <div className="rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] bg-[#070D1E] p-3 space-y-3">
+                <div className="flex items-center justify-between font-mono text-[10px] text-[#9FB3D9]">
                   <span>{springTelemetry.regime}</span>
                   <button
                     type="button"
                     onClick={() => setSpringStep((prev) => !prev)}
-                    className="tactile-control inline-flex items-center gap-1 rounded border border-white/15 bg-[#141517] px-2 py-0.5 text-[10px] text-[#F7F8F8] hover:border-white/30"
+                    className="tactile-control inline-flex items-center gap-1 rounded border border-white/15 bg-[#0E1E45] px-2 py-0.5 text-[10px] text-[#FAF6EE] hover:border-red-400"
                   >
-                    <Play className="h-2.5 w-2.5 text-emerald-400" />
+                    <Play className="h-2.5 w-2.5 text-red-400" />
                     <span>Trigger Impulse</span>
                   </button>
                 </div>
@@ -368,14 +368,14 @@ export default function CraftLabSection() {
                   <path
                     d={springTelemetry.svgPath}
                     fill="none"
-                    stroke="#10b981"
+                    stroke="#ef4444"
                     strokeWidth="1.75"
                     strokeLinecap="round"
                   />
                 </svg>
 
                 {/* Live Motion Track */}
-                <div className="relative h-8 rounded-md bg-[#141517] border border-white/[0.06] px-1.5 flex items-center">
+                <div className="relative h-8 rounded-md bg-[#0E1E45] border border-white/[0.06] px-1.5 flex items-center">
                   <motion.div
                     animate={{ x: springStep ? 180 : 0 }}
                     transition={{
@@ -386,7 +386,7 @@ export default function CraftLabSection() {
                     }}
                     onClick={() => setSpringStep((prev) => !prev)}
                     suppressHydrationWarning
-                    className="cursor-pointer select-none h-5 px-2.5 rounded bg-[#F7F8F8] text-[#08090A] font-mono text-[10px] font-semibold inline-flex items-center gap-1 shadow"
+                    className="cursor-pointer select-none h-5 px-2.5 rounded bg-red-600 text-white font-mono text-[10px] font-semibold inline-flex items-center gap-1 shadow"
                   >
                     <span>x: {springStep ? "180px" : "0px"}</span>
                   </motion.div>
@@ -554,7 +554,7 @@ export default function CraftLabSection() {
                             damping: 32,
                           }}
                           suppressHydrationWarning
-                          className="absolute inset-0 rounded-md bg-white dark:bg-[#1A1B1E] border border-zinc-200/80 dark:border-white/[0.1] shadow-sm"
+                          className="absolute inset-0 rounded-md bg-white dark:bg-[#12234D] border border-[#E8DEC8] dark:border-[#2A4785] shadow-sm"
                         />
                       )}
                       <span className="relative z-10 truncate">
@@ -573,33 +573,33 @@ export default function CraftLabSection() {
                 id="craft-exclusion-tabpanel"
                 role="tabpanel"
                 aria-labelledby={`craft-tab-${activeMode.id}`}
-                className="rounded-lg border border-zinc-200 dark:border-white/[0.08] bg-zinc-50 dark:bg-[#141517] p-3.5 space-y-2.5 font-mono text-xs"
+                className="rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] bg-[#FAF7F2] dark:bg-[#070D1E] p-3.5 space-y-2.5 font-mono text-xs"
               >
                 <div className="flex items-center justify-between text-[11px]">
-                  <span className="text-zinc-400 dark:text-[#555962]">
+                  <span className="text-zinc-400 dark:text-[#5B73A8]">
                     ACTIVE PROFILE
                   </span>
-                  <span className="text-emerald-600 dark:text-emerald-400 tabular-nums">
+                  <span className="text-red-600 dark:text-red-400 font-semibold tabular-nums">
                     TARGET SLA: {activeMode.latency}
                   </span>
                 </div>
-                <div className="text-[#090A0B] dark:text-[#F7F8F8] font-sans text-xs leading-relaxed">
+                <div className="text-[#0A1226] dark:text-[#FAF6EE] font-sans text-xs leading-relaxed">
                   {activeMode.note}
                 </div>
-                <div className="grid grid-cols-2 gap-2 pt-2 border-t border-zinc-200/70 dark:border-white/[0.06] text-[10px]">
+                <div className="grid grid-cols-2 gap-2 pt-2 border-t border-[#E8DEC8] dark:border-[#1E325C]/60 text-[10px]">
                   <div>
-                    <span className="text-zinc-400 dark:text-[#555962] block">
+                    <span className="text-zinc-400 dark:text-[#5B73A8] block">
                       SURFACE TOKEN
                     </span>
-                    <span className="text-zinc-700 dark:text-[#F7F8F8]">
+                    <span className="text-[#0A1226] dark:text-[#FAF6EE]">
                       {activeMode.surface}
                     </span>
                   </div>
                   <div>
-                    <span className="text-zinc-400 dark:text-[#555962] block">
+                    <span className="text-zinc-400 dark:text-[#5B73A8] block">
                       HAIRLINE BORDER
                     </span>
-                    <span className="text-zinc-700 dark:text-[#F7F8F8]">
+                    <span className="text-[#0A1226] dark:text-[#FAF6EE]">
                       {activeMode.border}
                     </span>
                   </div>
@@ -607,7 +607,7 @@ export default function CraftLabSection() {
               </div>
             </div>
 
-            <div className="pt-3 border-t border-zinc-200/70 dark:border-white/[0.06] flex items-center justify-between font-mono text-[10px] text-zinc-500 dark:text-[#8A8F98]">
+            <div className="pt-3 border-t border-[#E8DEC8] dark:border-[#1E325C]/60 flex items-center justify-between font-mono text-[10px] text-zinc-500 dark:text-[#9FB3D9]">
               <span>IDENTITY TRANSFORM: scale: 1</span>
               <span>ZERO STACKING SHIFT</span>
             </div>
@@ -616,17 +616,17 @@ export default function CraftLabSection() {
           {/* Module 03: Async Queue & Worker Concurrency Simulator */}
           <div className="surface-panel rounded-xl p-5 flex flex-col justify-between space-y-5">
             <div className="space-y-4">
-              <div className="flex items-center justify-between gap-2 border-b border-zinc-200/70 dark:border-white/[0.06] pb-3">
+              <div className="flex items-center justify-between gap-2 border-b border-[#E8DEC8] dark:border-[#1E325C]/60 pb-3">
                 <div className="flex items-center gap-2">
-                  <Activity className="h-3.5 w-3.5 text-zinc-500 dark:text-[#8A8F98]" />
-                  <h3 className="font-mono text-xs font-semibold text-[#090A0B] dark:text-[#F7F8F8]">
+                  <Activity className="h-3.5 w-3.5 text-zinc-500 dark:text-[#9FB3D9]" />
+                  <h3 className="font-mono text-xs font-semibold text-[#0A1226] dark:text-[#FAF6EE]">
                     LAB 03 // QUEUE TELEMETRY
                   </h3>
                 </div>
                 <span
-                  className={`font-mono text-[10px] ${
+                  className={`font-mono text-[10px] font-semibold ${
                     asyncQueueEnabled
-                      ? "text-emerald-600 dark:text-emerald-400"
+                      ? "text-red-600 dark:text-red-400"
                       : "text-amber-600 dark:text-amber-400"
                   }`}
                 >
@@ -635,14 +635,14 @@ export default function CraftLabSection() {
               </div>
 
               {/* Architecture Mode Switch */}
-              <div className="grid grid-cols-2 gap-1.5 rounded-lg border border-zinc-200 dark:border-white/[0.08] bg-zinc-100/80 dark:bg-[#08090A] p-1">
+              <div className="grid grid-cols-2 gap-1.5 rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] bg-[#F2ECE1] dark:bg-[#070D1E] p-1">
                 <button
                   type="button"
                   onClick={() => setAsyncQueueEnabled(true)}
                   className={`tactile-control rounded px-2.5 py-1.5 font-mono text-[10px] font-medium transition-colors ${
                     asyncQueueEnabled
-                      ? "bg-white dark:bg-[#1A1B1E] text-[#090A0B] dark:text-[#F7F8F8] shadow-sm"
-                      : "text-zinc-500 dark:text-[#8A8F98]"
+                      ? "bg-white dark:bg-[#12234D] text-[#0A1226] dark:text-[#FAF6EE] shadow-sm font-semibold"
+                      : "text-zinc-500 dark:text-[#9FB3D9]"
                   }`}
                 >
                   pg-boss + Sharp SIMD
@@ -652,8 +652,8 @@ export default function CraftLabSection() {
                   onClick={() => setAsyncQueueEnabled(false)}
                   className={`tactile-control rounded px-2.5 py-1.5 font-mono text-[10px] font-medium transition-colors ${
                     !asyncQueueEnabled
-                      ? "bg-white dark:bg-[#1A1B1E] text-[#090A0B] dark:text-[#F7F8F8] shadow-sm"
-                      : "text-zinc-500 dark:text-[#8A8F98]"
+                      ? "bg-white dark:bg-[#12234D] text-[#0A1226] dark:text-[#FAF6EE] shadow-sm font-semibold"
+                      : "text-zinc-500 dark:text-[#9FB3D9]"
                   }`}
                 >
                   Sync HTTP Decode
@@ -662,19 +662,19 @@ export default function CraftLabSection() {
 
               {/* Telemetry Metrics Readout */}
               <div className="grid grid-cols-2 gap-2.5">
-                <div className="rounded-lg border border-zinc-200 dark:border-white/[0.08] bg-zinc-50 dark:bg-[#141517] p-3">
-                  <div className="font-mono text-[9px] text-zinc-400 dark:text-[#555962]">
+                <div className="rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] bg-[#FAF7F2] dark:bg-[#070D1E] p-3">
+                  <div className="font-mono text-[9px] text-[#1E3A8A] dark:text-[#9FB3D9]">
                     P95 HTTP RESPONSE
                   </div>
-                  <div className="font-mono text-lg font-semibold tabular-nums text-[#090A0B] dark:text-[#F7F8F8] mt-0.5">
+                  <div className="font-mono text-lg font-semibold tabular-nums text-[#0A1226] dark:text-[#FAF6EE] mt-0.5">
                     {queueTelemetry.p95LatencyMs} ms
                   </div>
                 </div>
-                <div className="rounded-lg border border-zinc-200 dark:border-white/[0.08] bg-zinc-50 dark:bg-[#141517] p-3">
-                  <div className="font-mono text-[9px] text-zinc-400 dark:text-[#555962]">
+                <div className="rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] bg-[#FAF7F2] dark:bg-[#070D1E] p-3">
+                  <div className="font-mono text-[9px] text-[#1E3A8A] dark:text-[#9FB3D9]">
                     THROUGHPUT
                   </div>
-                  <div className="font-mono text-lg font-semibold tabular-nums text-[#090A0B] dark:text-[#F7F8F8] mt-0.5">
+                  <div className="font-mono text-lg font-semibold tabular-nums text-[#0A1226] dark:text-[#FAF6EE] mt-0.5">
                     {queueTelemetry.throughputJobsPerMin} jobs/m
                   </div>
                 </div>

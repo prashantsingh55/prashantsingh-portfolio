@@ -80,18 +80,18 @@ export default function Newsletter() {
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.5 }}
           suppressHydrationWarning
-          className="rounded-xl border border-zinc-200/90 dark:border-white/[0.08] bg-white dark:bg-[#0E1012] p-6 sm:p-10 shadow-sm"
+          className="rounded-xl border border-[#E8DEC8] dark:border-[#1E325C] bg-[#FAF7F2] dark:bg-[#0A142F] p-6 sm:p-10 shadow-sm"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-2.5">
-              <div className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-zinc-500 dark:text-[#8A8F98]">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+              <div className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-[#1E3A8A] dark:text-[#9FB3D9]">
+                <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
                 <span>ENGINEERING DISPATCH // CHANGELOG &amp; RELEASES</span>
               </div>
-              <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-[#090A0B] dark:text-[#F7F8F8]">
+              <h2 className="text-xl sm:text-2xl font-semibold tracking-tight text-[#0A1226] dark:text-[#FAF6EE]">
                 Subscribe to Engineering Notes &amp; Architecture Updates
               </h2>
-              <p className="text-xs sm:text-sm text-zinc-600 dark:text-[#8A8F98] max-w-xl leading-relaxed">
+              <p className="text-xs sm:text-sm text-zinc-600 dark:text-[#9FB3D9] max-w-xl leading-relaxed">
                 Low-frequency dispatches covering Next.js systems architecture,
                 Sharp SIMD image pipelines, Flutter AR sensor fusion, and
                 Solidity smart contract experiments. Zero noise.
@@ -107,14 +107,14 @@ export default function Newsletter() {
               >
                 <label
                   htmlFor="newsletter-email"
-                  className="block font-mono text-xs font-medium text-[#090A0B] dark:text-[#F7F8F8]"
+                  className="block font-mono text-xs font-medium text-[#0A1226] dark:text-[#FAF6EE]"
                 >
                   Email Address
                 </label>
                 {/* MANDATORY (validate-input-after-interaction): Place format hints above the input so autocomplete popovers don't cover them */}
                 <span
                   id="newsletter-email-hint"
-                  className="block font-mono text-[11px] text-zinc-500 dark:text-[#8A8F98]"
+                  className="block font-mono text-[11px] text-zinc-500 dark:text-[#9FB3D9]"
                 >
                   Format: you@example.com
                 </span>
@@ -131,7 +131,7 @@ export default function Newsletter() {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="you@domain.com"
                       required
-                      className="w-full rounded-lg border border-zinc-200 dark:border-white/[0.1] bg-zinc-50 dark:bg-[#141517] px-3.5 py-2.5 text-sm text-[#090A0B] dark:text-[#F7F8F8] placeholder:text-zinc-400 dark:placeholder:text-[#555962] focus:border-zinc-400 dark:focus:border-white/30 focus:outline-none"
+                      className="w-full rounded-lg border border-[#E8DEC8] dark:border-[#1E325C] bg-white dark:bg-[#070D1E] px-3.5 py-2.5 text-sm text-[#0A1226] dark:text-[#FAF6EE] placeholder:text-zinc-400 dark:placeholder:text-[#9FB3D9]/60 focus:border-red-500 focus:outline-none"
                     />
                     <div
                       id="newsletter-email-error"
@@ -144,7 +144,7 @@ export default function Newsletter() {
                   <button
                     type="submit"
                     disabled={status === "submitting"}
-                    className="tactile-control inline-flex items-center justify-center gap-2 self-start rounded-lg bg-[#090A0B] dark:bg-[#F7F8F8] disabled:opacity-60 px-5 py-2.5 text-xs sm:text-sm font-medium text-white dark:text-[#08090A] shrink-0"
+                    className="tactile-control inline-flex items-center justify-center gap-2 self-start rounded-lg bg-red-600 hover:bg-red-700 disabled:opacity-60 px-5 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-sm transition-colors shrink-0"
                   >
                     <span>
                       {status === "submitting" ? "Subscribing..." : "Subscribe"}

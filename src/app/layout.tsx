@@ -19,11 +19,15 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: `${PROFILE.fullName} — Tech/Business Analyst & Full Stack Developer | Next.js, Flutter & Web3`,
+  title: `${PROFILE.fullName} — Tech/Business Analyst, Growth Marketer & Full Stack Developer`,
   description: PROFILE.extendedBio,
   keywords: [
     "Prashant Bikram Singh",
     "Prashant Singh",
+    "Meta Ads Expert Nepal",
+    "Google Ads Specialist",
+    "SEO Expert Kathmandu",
+    "Performance Marketing Consultant",
     "Tech/Business Analyst Nepal",
     "Full Stack Developer Nepal",
     "Next.js Developer Kathmandu",
