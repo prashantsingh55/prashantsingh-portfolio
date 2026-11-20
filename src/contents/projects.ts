@@ -36,8 +36,6 @@ export const projects: Project[] = [
     category: "fullstack",
     githubLink: "https://github.com/prashantsingh55/BeYourOwnMarketer",
     demoLink: "https://beyourownmarketeracademy.com/",
-    secondaryDemoLink: "https://byom-tau.vercel.app",
-    secondaryDemoLabel: "BYOM App (byom-tau)",
     image: "/projects/byom-academy.png",
     featured: true,
     year: "2026",

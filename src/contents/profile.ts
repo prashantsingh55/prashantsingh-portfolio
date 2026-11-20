@@ -31,10 +31,10 @@ export const PROFILE = {
   timezone: "NPT (UTC+05:45)",
   availability:
     "Available for Tech/Business Analysis, Full-Stack Engineering, Paid Ads & SEO Strategy",
-  email: "prashantbikramsingh88@gmail.com",
+  email: "prashantbikramsingh@gmail.com",
   secondaryEmail: "thakurisinghprashant@gmail.com",
   emails: [
-    "prashantbikramsingh88@gmail.com",
+    "prashantbikramsingh@gmail.com",
     "thakurisinghprashant@gmail.com",
   ],
   phone: "+977 9808193078",
